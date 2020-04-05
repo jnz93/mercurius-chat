@@ -19,4 +19,3 @@ CONST PREFIX        = 'mchat_';
 // CONST PLUGIN_PATH   = $path; 
 
 include_once( plugin_dir_path(__FILE__) . '/Entities/MercuriusChat.php');
-new MercuriusChat();

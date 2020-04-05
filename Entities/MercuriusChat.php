@@ -8,6 +8,8 @@
   */
 class MercuriusChat{
 
+    protected static $instance;
+
     public function __construct()
     {
         add_action('admin_menu', array($this, 'mchat_add_menu'));
@@ -164,5 +166,14 @@ class MercuriusChat{
             <?php submit_button(); ?>
         </form>
         <?php
-    } 
+    }
+
+
+    public static function instance() {
+        if (!isset(self::$instance)) {
+          self::$instance = new self();
+        }
+        return self::$instance;
+      }
 }
+MercuriusChat::instance();
