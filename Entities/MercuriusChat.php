@@ -10,10 +10,17 @@ class MercuriusChat{
 
     protected static $instance;
 
+    /**
+     * Construtor e inicializador
+     */
     public function __construct()
     {
         add_action('admin_menu', array($this, 'mchat_add_menu'));
         add_action('admin_init', array($this, 'mchat_register_settings'));
+
+
+        // Render chat front-end
+        add_action('wp_footer', array($this, 'mchat_render_plugin'));
     }
 
     /**
@@ -66,7 +73,7 @@ class MercuriusChat{
     }
 
     /**
-     * Formulário de configurações
+     * Formulário de configurações administrativo
      */
     public function mchat_form_setup()
     {
@@ -168,12 +175,84 @@ class MercuriusChat{
         <?php
     }
 
+    /**
+     * html plugin
+     */
+    public function mchat_render_plugin()
+    {
+        $mchat_phone_number      = get_option('mchat_phone_number');
+        $mchat_contact_message   = get_option('mchat_contact_message');
+        $mchat_screen_position   = get_option('mchat_screen_position');
+        $mchat_custom_icon       = get_option('mchat_custom_icon');
+        $mchat_tooltip           = get_option('mchat_tooltip');
+        $mchat_popup_message     = get_option('mchat_popup_message');
+        $mchat_text_button       = get_option('mchat_text_button');
 
+        ?>
+        <!-- Container app -->
+        <div class="">
+            <!-- Wrapper chat -->
+            <div class="">
+                <header class="" role="">
+                    <h3 class="">Bem vindo!</h3>
+                    <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                </header>
+
+                <section class="">
+                    <div class="">
+                        <span class=""><?php echo $mchat_contact_message; ?></span>
+                    </div>
+
+                    <div class="">
+                        <span class="">Ver Catálogo/Produtos</span>
+                    </div>
+
+                    <div class="">
+                        <span class="">Atendimento Comercial</span>
+                    </div>
+
+                    <div class="">
+                        <span class="">Suporte</span>
+                    </div>
+                </section>
+
+                <footer class="" role="">
+                    <div class="">
+                        <input type="text" id="" class="" placeholder="Digite e pressione enter para enviar">
+                        <button type="button" id="" class="mchat__button">
+                            <span clas="mchat__icon mchat__icon--send"></span>
+                            <span class=""><?php echo $mchat_text_button ?></span>
+                        </button>
+                    </div>
+                </footer>
+
+            </div>
+
+            <!-- Wrapper tooltips -->
+            <div class="">
+                <span class="mchat__tooltip"><?php echo $mchat_tooltip ?></span>
+            </div>
+
+            <!-- Wrapper buttons open/close -->
+            <div class="">
+                <button type="button" id="" class="mchat__button">
+                    <span class="mchat__icon mchat__icon--messenger"></span>
+                    <span class="mchat__icon mchat__icon--close"></span>
+                </button>
+            </div>
+        </div>
+        <?php
+    }
+
+
+    /**
+     * Instanciando a função
+     */
     public static function instance() {
         if (!isset(self::$instance)) {
           self::$instance = new self();
         }
         return self::$instance;
-      }
+    }
 }
 MercuriusChat::instance();
