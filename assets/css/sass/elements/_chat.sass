@@ -1,0 +1,74 @@
+/*
+    .chat
+    .chat__element
+    .chamat__element--modifier*/
+@import "_styleguide.sass"
+@import "_settings.sass"
+.mchatMessenger
+    font-family: 'IBM Plex Sans', sans-serif
+    font-size: 62.5%
+    background-color: $white0
+    width: $widthChatDesktop
+    max-height: $heightChatDesktop
+    border-radius: $halfDefaultPaddingDesktop
+    overflow: hidden
+
+    position: absolute
+    bottom: 32px
+    right: 32px
+
+    &__header
+        background-color: $secondary
+        width: 100%
+        padding-top: $halfDefaultPaddingDesktop
+        padding-right: $defaultPaddingDesktop
+        padding-left: $defaultPaddingDesktop
+
+    &__body
+        width: 100%
+        min-height: 275px
+        padding-top: $halfDefaultPaddingDesktop
+        padding-right: $defaultPaddingDesktop
+        padding-bottom: $halfDefaultPaddingDesktop
+        padding-left: $defaultPaddingDesktop
+        position: relative
+
+    &__footer
+        background-color: $light0
+        widht: 100%
+        height: 48px
+
+    // Titulo e subtitulo
+    &__title
+        font-size: $fs-21
+        font-weight: $fw_bold
+        color: $white0
+        margin: 0
+        margin-bottom: $defaultMarginDesktop
+
+    &__subtitle
+        @extend .mchatMessenger__title
+        font-size: $fs-16
+        font-weight: $fw_normal
+
+    // Mensagens
+    &__messageContainer
+        background: $light0
+        margin: $defaultMarginDesktop 0
+        padding: 8px $halfDefaultPaddingDesktop
+        border-radius: $defaultMarginDesktop / 2
+        position: relative
+
+    &__messageText
+        font-size: $fs-16
+        font-weight: $fw_normal
+        color: $dark-1
+
+    // Input  & botoes
+    &__inputText
+        width: 100%
+        height: 100%
+        padding-left: $defaultPaddingDesktop
+
+    &__btnSend
+        display: none

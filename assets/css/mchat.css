@@ -1,2 +1,71 @@
 /*------------------------------------*\
-    IMPORTS TO COMPILE */
+    Plugin: MercuriusChat
+    Version:
+    Author: JNZ93
+    CSS Pattern: BEM(Block, element, modifier) */
+/*
+    .chat
+    .chat__element
+    .chamat__element--modifier*/
+/*------------------------------------*\
+    PALET OF COLORS */
+/*------------------------------------*\
+    TEXT STYLES */
+/*------------------------------------*\
+    FONT SIZES AND LINE HEIGHTS */
+/*
+    VARS, MIXINS and PATTERNS*/
+.mchatMessenger {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 62.5%;
+  background-color: #FFFFFF;
+  width: 390px;
+  max-height: 495px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 32px;
+  right: 32px; }
+  .mchatMessenger__header {
+    background-color: #FF5722;
+    width: 100%;
+    padding-top: 16px;
+    padding-right: 32px;
+    padding-left: 32px; }
+  .mchatMessenger__body {
+    width: 100%;
+    min-height: 275px;
+    padding-top: 16px;
+    padding-right: 32px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    position: relative; }
+  .mchatMessenger__footer {
+    background-color: #EDF1F6;
+    widht: 100%;
+    height: 48px; }
+  .mchatMessenger__title, .mchatMessenger__subtitle {
+    font-size: 21px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    margin-bottom: 8px; }
+  .mchatMessenger__subtitle {
+    font-size: 16px;
+    font-weight: 400; }
+  .mchatMessenger__messageContainer {
+    background: #EDF1F6;
+    margin: 8px 0;
+    padding: 8px 16px;
+    border-radius: 4px;
+    position: relative; }
+  .mchatMessenger__messageText {
+    font-size: 16px;
+    font-weight: 400;
+    color: #212121; }
+  .mchatMessenger__inputText {
+    width: 100%;
+    height: 100%;
+    padding-left: 32px; }
+  .mchatMessenger__btnSend {
+    display: none; }
