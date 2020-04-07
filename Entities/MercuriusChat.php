@@ -229,11 +229,10 @@ class MercuriusChat{
                 </section>
 
                 <footer class="mchatMessenger__footer" role="">
-                    <div class="">
+                    <div class="mchatMessenger__wrapperInput">
                         <input type="text" id="" class="mchatMessenger__inputText" placeholder="Digite e pressione enter para enviar">
-                        <button type="button" id="" class="mchatMessenger__btnSend">
-                            <span clas="mchat__icon mchat__icon--send"></span>
-                            <span class=""><?php echo $mchat_text_button ?></span>
+                        <button type="button" id="" class="mchatBtn mchatBtn__send">
+                            <span class="mchatIcon mchatIcon__send"></span>
                         </button>
                     </div>
                 </footer>
