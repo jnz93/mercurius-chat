@@ -147,7 +147,7 @@ class MercuriusChat{
                             <label for="mchat_tooltip"><?php _e('Dica do chat', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="url" id="mchat_tooltip" name="mchat_tooltip" class="" placeholder="Precisa de ajuda?" value="<?php echo (!empty($curr_tooltip) ? $curr_tooltip : ''); ?>">
+                            <input type="text" id="mchat_tooltip" name="mchat_tooltip" class="" placeholder="Precisa de ajuda?" value="<?php echo (!empty($curr_tooltip) ? $curr_tooltip : ''); ?>">
                         </td>
                     </tr>
 
@@ -200,7 +200,7 @@ class MercuriusChat{
 
                 <section class="">
                     <div class="">
-                        <span class=""><?php echo $mchat_contact_message; ?></span>
+                        <span class=""><?php echo $mchat_popup_message; ?></span>
                     </div>
 
                     <div class="">
