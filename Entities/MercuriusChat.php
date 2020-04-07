@@ -18,6 +18,9 @@ class MercuriusChat{
         add_action('admin_menu', array($this, 'mchat_add_menu'));
         add_action('admin_init', array($this, 'mchat_register_settings'));
 
+        // Enfileiramento de scripts
+        add_action('wp_enqueue_scripts', array($this, 'mchat_enqueue_scripts'));
+        add_action('wp_head', array($this, 'mchat_enqueue_gfonts'));
 
         // Render chat front-end
         add_action('wp_footer', array($this, 'mchat_render_plugin'));
@@ -28,9 +31,18 @@ class MercuriusChat{
      */
     public function mchat_enqueue_scripts()
     {
+        // Registro CSS
+        wp_register_style('mchat-css', plugins_url() . '/MercuriusChat/assets/css/mchat.css', array(), 'all');
+
+        
         // Add Enfileiramento de scripts
+        wp_enqueue_style('mchat-css');
     }
 
+    public function mchat_enqueue_gfonts()
+    {
+        echo '<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">';
+    }
     /**
      * Registrar options de configurações do plugin
      */
@@ -53,7 +65,7 @@ class MercuriusChat{
      */
     public function mchat_admin_page()
     {
-        require_once(plugin_dir_path(__FILE__) . '../Views/admin/home-page.php');
+        require_once(plugin_dir_path(__FILE__) . '../views/admin/home-page.php');
     }
 
     /**
@@ -190,36 +202,36 @@ class MercuriusChat{
 
         ?>
         <!-- Container app -->
-        <div class="">
+        <div class="mchatMessenger">
             <!-- Wrapper chat -->
             <div class="">
-                <header class="" role="">
-                    <h3 class="">Bem vindo!</h3>
-                    <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                <header class="mchatMessenger__header" role="">
+                    <h3 class="mchatMessenger__title">Bem vindo!</h3>
+                    <p class="mchatMessenger__subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
                 </header>
 
-                <section class="">
-                    <div class="">
-                        <span class=""><?php echo $mchat_popup_message; ?></span>
+                <section class="mchatMessenger__body">
+                    <div class="mchatMessenger__messageContainer">
+                        <span class="mchatMessenger__messageText"><?php echo $mchat_popup_message; ?></span>
                     </div>
 
-                    <div class="">
-                        <span class="">Ver Catálogo/Produtos</span>
+                    <div class="mchatMessenger__messageContainer">
+                        <span class="mchatMessenger__messageText">Ver Catálogo/Produtos</span>
                     </div>
 
-                    <div class="">
-                        <span class="">Atendimento Comercial</span>
+                    <div class="mchatMessenger__messageContainer">
+                        <span class="mchatMessenger__messageText">Atendimento Comercial</span>
                     </div>
 
-                    <div class="">
-                        <span class="">Suporte</span>
+                    <div class="mchatMessenger__messageContainer">
+                        <span class="mchatMessenger__messageText">Suporte</span>
                     </div>
                 </section>
 
-                <footer class="" role="">
+                <footer class="mchatMessenger__footer" role="">
                     <div class="">
-                        <input type="text" id="" class="" placeholder="Digite e pressione enter para enviar">
-                        <button type="button" id="" class="mchat__button">
+                        <input type="text" id="" class="mchatMessenger__inputText" placeholder="Digite e pressione enter para enviar">
+                        <button type="button" id="" class="mchatMessenger__btnSend">
                             <span clas="mchat__icon mchat__icon--send"></span>
                             <span class=""><?php echo $mchat_text_button ?></span>
                         </button>
@@ -229,13 +241,13 @@ class MercuriusChat{
             </div>
 
             <!-- Wrapper tooltips -->
-            <div class="">
+            <div class="" style="display: none">
                 <span class="mchat__tooltip"><?php echo $mchat_tooltip ?></span>
             </div>
 
             <!-- Wrapper buttons open/close -->
-            <div class="">
-                <button type="button" id="" class="mchat__button">
+            <div class="" style="display: none">
+                <button type="button" id="" class="mcha__button">
                     <span class="mchat__icon mchat__icon--messenger"></span>
                     <span class="mchat__icon mchat__icon--close"></span>
                 </button>
