@@ -5,7 +5,7 @@
 @import "_styleguide.sass"
 @import "_settings.sass"
 .mchatMessenger
-    font-family: 'IBM Plex Sans', sans-serif
+    font-family: $family
     font-size: 62.5%
 
     background-color: $white0
@@ -20,6 +20,11 @@
     position: absolute
     bottom: 32px
     right: 32px
+    &--disabled
+        display: none
+
+    &--enabled
+        display: block
 
     &__header
         background-color: $secondary
@@ -85,6 +90,6 @@
 
         border: none !important
         outline: none
-        font-family: 'IBM Plex Sans', sans-serif
+        font-family: $family
         font-size: $fs-16
         color: $dark0

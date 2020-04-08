@@ -8,6 +8,8 @@
 /*------------------------------------*\
     TEXT STYLES */
 /*------------------------------------*\
+    Font Family */
+/*------------------------------------*\
     FONT SIZES AND LINE HEIGHTS */
 /*
     VARS, MIXINS and PATTERNS*/
@@ -45,11 +47,13 @@
 /*------------------------------------*\
     TEXT STYLES */
 /*------------------------------------*\
+    Font Family */
+/*------------------------------------*\
     FONT SIZES AND LINE HEIGHTS */
 /*
     VARS, MIXINS and PATTERNS*/
 .mchatMessenger {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 62.5%;
   background-color: #FFFFFF;
   width: 360px;
@@ -61,6 +65,10 @@
   position: absolute;
   bottom: 32px;
   right: 32px; }
+  .mchatMessenger--disabled {
+    display: none; }
+  .mchatMessenger--enabled {
+    display: block; }
   .mchatMessenger__header {
     background-color: #FF5722;
     width: 100%;
@@ -112,6 +120,31 @@
     margin-left: 8px;
     border: none !important;
     outline: none;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-size: 16px;
     color: #757575; }
+
+/*------------------------------------*\
+    PALET OF COLORS */
+/*------------------------------------*\
+    TEXT STYLES */
+/*------------------------------------*\
+    Font Family */
+/*------------------------------------*\
+    FONT SIZES AND LINE HEIGHTS */
+/*
+    VARS, MIXINS and PATTERNS*/
+.mchatTooltip__wrapper {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #FF5722;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; }
+
+.mchatTooltip__text {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  color: #FF5722;
+  margin: 0;
+  padding: 0; }
