@@ -10,7 +10,7 @@
     padding: 0 !important
 
     &:hover
-        background: none
+        background-color: inherit
 
     &__send
         background: $light-1
@@ -26,6 +26,10 @@
         background-color: $secondary
         border-radius: 100%
 
+        &:hover
+            background-color: $secondary
+            box-shadow: $defaultShadow
+
 
 .mchatIcon
     width: 100%
@@ -38,7 +42,7 @@
         fill: $secondary
         background-repeat: no-repeat
         background-position: center
-        background-size: 48px
+        background-size: 32px
 
     &__messenger
         background-image: $srcIconMessenger
@@ -46,16 +50,12 @@
         fill: $white0
         background-repeat: no-repeat
         background-position: center
-        background-size: 48px
+        background-size: 40px
 
     &__close
+        @extend .mchatIcon__messenger
         background-image: $srcIconClose
-        color: $white0
-        fill: $white0
-        background-repeat: no-repeat
-        background-position: center
-        background-size: 48px
-        transform: rotate(45deg)
+        background-size: 56px
 
 
     &--disabled

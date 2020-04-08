@@ -21,7 +21,7 @@
   margin: 0 !important;
   padding: 0 !important; }
   .mchatBtn:hover {
-    background: none; }
+    background-color: inherit; }
   .mchatBtn__send {
     background: #E5E9ED;
     border: none;
@@ -33,6 +33,9 @@
     height: 64px;
     background-color: #FF5722;
     border-radius: 100%; }
+    .mchatBtn__openAndClose:hover {
+      background-color: #FF5722;
+      box-shadow: 0px 3px 6px #E5E9ED; }
 
 .mchatIcon {
   width: 100%;
@@ -44,22 +47,17 @@
     fill: #FF5722;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 48px; }
-  .mchatIcon__messenger {
-    background-image: url("../icons/icon_chat.svg");
+    background-size: 32px; }
+  .mchatIcon__messenger, .mchatIcon__close {
+    background-image: url("../icons/icon_messenger.svg");
     color: #FFFFFF;
     fill: #FFFFFF;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 48px; }
+    background-size: 40px; }
   .mchatIcon__close {
     background-image: url("../icons/icon_close.svg");
-    color: #FFFFFF;
-    fill: #FFFFFF;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 48px;
-    transform: rotate(45deg); }
+    background-size: 56px; }
   .mchatIcon--disabled {
     display: none; }
   .mchatIcon--enabled {
@@ -90,7 +88,7 @@
   box-shadow: 0px 3px 6px #EDF1F6;
   overflow: hidden;
   position: absolute;
-  bottom: 32px;
+  bottom: 104px;
   right: 32px; }
   .mchatMessenger--disabled {
     display: none; }
@@ -164,6 +162,9 @@
 .mchatContainer {
   width: auto;
   height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   position: absolute;
   bottom: 32px; }
   .mchatContainer--right {
@@ -173,17 +174,18 @@
     left: 32px;
     right: auto; }
 
-.mchatTooltip__wrapper {
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid #FF5722;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center; }
-
 .mchatTooltip__text {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 16px;
-  color: #FF5722;
+  color: #FFFFFF;
+  text-transform: uppercase;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #FF5722;
+  background-color: #FF5722;
+  box-shadow: 0px 3px 6px #E5E9ED;
+  width: max-content;
+  position: absolute;
+  top: -56px; }

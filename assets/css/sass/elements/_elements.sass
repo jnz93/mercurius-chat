@@ -6,6 +6,10 @@
     width: auto
     height: auto
 
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-end
+
     position: absolute
     bottom: 32px
 
@@ -18,19 +22,21 @@
         right: auto
 
 .mchatTooltip
-    &__wrapper
-        padding: 4px 8px
-        border-radius: 4px
-        border: 1px solid $secondary
-
-        display: inline-flex
-        align-items: center
-        justify-content: center
-
 
     &__text
         font-family: $family
         font-size: $fs-16
-        color: $secondary
+        color: $white0
+        text-transform: uppercase
         margin: 0
         padding: 0
+
+        padding: 8px 16px
+        border-radius: 4px
+        border: 1px solid $secondary
+
+        background-color: $secondary
+        box-shadow: $defaultShadow
+        width: max-content
+        position: absolute
+        top: -56px
