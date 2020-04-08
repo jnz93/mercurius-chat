@@ -28,6 +28,11 @@
     width: 48px;
     height: 48px;
     overflow: hidden; }
+  .mchatBtn__openAndClose {
+    width: 64px;
+    height: 64px;
+    background-color: #FF5722;
+    border-radius: 100%; }
 
 .mchatIcon {
   width: 100%;
@@ -36,7 +41,29 @@
   .mchatIcon__send {
     background-image: url(../icons/icon_send.svg);
     color: #FF5722;
-    fill: #FF5722; }
+    fill: #FF5722;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 48px; }
+  .mchatIcon__messenger {
+    background-image: url("../icons/icon_chat.svg");
+    color: #FFFFFF;
+    fill: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 48px; }
+  .mchatIcon__close {
+    background-image: url("../icons/icon_close.svg");
+    color: #FFFFFF;
+    fill: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 48px;
+    transform: rotate(45deg); }
+  .mchatIcon--disabled {
+    display: none; }
+  .mchatIcon--enabled {
+    display: inline-block; }
 
 /*
     .chat
@@ -134,6 +161,18 @@
     FONT SIZES AND LINE HEIGHTS */
 /*
     VARS, MIXINS and PATTERNS*/
+.mchatContainer {
+  width: auto;
+  height: auto;
+  position: absolute;
+  bottom: 32px; }
+  .mchatContainer--right {
+    right: 32px;
+    left: auto; }
+  .mchatContainer--left {
+    left: 32px;
+    right: auto; }
+
 .mchatTooltip__wrapper {
   padding: 4px 8px;
   border-radius: 4px;

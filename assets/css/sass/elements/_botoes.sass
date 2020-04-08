@@ -20,12 +20,46 @@
 
         overflow: hidden
 
+    &__openAndClose
+        width: $widthBtnDesktop
+        height: $heightBtnDesktop
+        background-color: $secondary
+        border-radius: 100%
+
 
 .mchatIcon
     width: 100%
     height: 100%
     display: inline-block
+
     &__send
         background-image: $srcIconSend
         color: $secondary
         fill: $secondary
+        background-repeat: no-repeat
+        background-position: center
+        background-size: 48px
+
+    &__messenger
+        background-image: $srcIconMessenger
+        color: $white0
+        fill: $white0
+        background-repeat: no-repeat
+        background-position: center
+        background-size: 48px
+
+    &__close
+        background-image: $srcIconClose
+        color: $white0
+        fill: $white0
+        background-repeat: no-repeat
+        background-position: center
+        background-size: 48px
+        transform: rotate(45deg)
+
+
+    &--disabled
+        display: none
+
+    &--enabled
+        display: inline-block
