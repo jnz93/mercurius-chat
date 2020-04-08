@@ -31,12 +31,17 @@ class MercuriusChat{
      */
     public function mchat_enqueue_scripts()
     {
-        // Registro CSS
-        wp_register_style('mchat-css', plugins_url() . '/MercuriusChat/assets/css/mchat.css', array(), 'all');
+        // Registro de arquivos CSS
+        wp_register_style('mchat-css', plugins_url() . '/mercurius-chat/assets/css/mchat.css', array(), 'all');
 
+        // Registro de arquivos JS
+        wp_register_script('jquery-3.4.1', plugins_url('../assets/js/jquery-3.4.1.min.js', __FILE__), array(), false);
+        wp_register_script('mchat-js', plugins_url('../assets/js/mchat-script.js', __FILE__), array('jquery-3.4.1'), false);
         
-        // Add Enfileiramento de scripts
+        // Enfileiramento de scripts e css
         wp_enqueue_style('mchat-css');
+        wp_enqueue_script('jquery-3.4.1');
+        wp_enqueue_script('mchat-js');
     }
 
     public function mchat_enqueue_gfonts()
