@@ -207,7 +207,7 @@ class MercuriusChat{
 
         ?>
         <!-- Wrapper chat -->
-        <div class="mchatMessenger mchatMessenger--disabled">
+        <div id="mchatMessenger" class="mchatMessenger mchatMessenger--disabled">
             <header class="mchatMessenger__header" role="">
                 <h3 class="mchatMessenger__title">Bem vindo!</h3>
                 <p class="mchatMessenger__subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
@@ -244,10 +244,10 @@ class MercuriusChat{
         <!-- Container elements -->
         <div class="mchatContainer mchatContainer--right">
             <!-- Wrapper tooltips -->
-            <span class="mchatTooltip__text"><?php echo $mchat_tooltip ?></span>
+            <span class="mchatTooltip mchatTooltip__text"><?php echo $mchat_tooltip ?></span>
             
             <!-- Wrapper buttons open/close -->
-            <button type="button" id="" class="mchatBtn mchatBtn__openAndClose">
+            <button type="button" id="" class="mchatBtn mchatBtn__openAndClose" onclick="openAndCloseChat(jQuery(this))">
                 <span class="mchatIcon mchatIcon__messenger mchatIcon--enabled"></span>
                 <span class="mchatIcon mchatIcon__close mchatIcon--disabled"></span>
             </button>
@@ -257,7 +257,7 @@ class MercuriusChat{
 
 
     /**
-     * Instanciando a função
+     * Instanciando a classe
      */
     public static function instance() {
         if (!isset(self::$instance)) {
