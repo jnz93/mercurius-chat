@@ -65,7 +65,7 @@ class MercuriusChat{
      */
     public function mchat_admin_page()
     {
-        require_once(plugin_dir_path(__FILE__) . '../views/admin/home-page.php');
+        require_once(plugin_dir_path(__FILE__) . '../templates/admin/home-page.php');
     }
 
     /**
@@ -201,56 +201,51 @@ class MercuriusChat{
         $mchat_text_button       = get_option('mchat_text_button');
 
         ?>
-        <!-- Container app -->
-        <div class="mchatMessenger">
-            <!-- Wrapper chat -->
-            <div class="">
-                <header class="mchatMessenger__header" role="">
-                    <h3 class="mchatMessenger__title">Bem vindo!</h3>
-                    <p class="mchatMessenger__subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                </header>
+        <!-- Wrapper chat -->
+        <div class="mchatMessenger mchatMessenger--disabled">
+            <header class="mchatMessenger__header" role="">
+                <h3 class="mchatMessenger__title">Bem vindo!</h3>
+                <p class="mchatMessenger__subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            </header>
 
-                <section class="mchatMessenger__body">
-                    <div class="mchatMessenger__messageContainer">
-                        <span class="mchatMessenger__messageText"><?php echo $mchat_popup_message; ?></span>
-                    </div>
+            <section class="mchatMessenger__body">
+                <div class="mchatMessenger__messageContainer">
+                    <span class="mchatMessenger__messageText"><?php echo $mchat_popup_message; ?></span>
+                </div>
 
-                    <div class="mchatMessenger__messageContainer">
-                        <span class="mchatMessenger__messageText">Ver Catálogo/Produtos</span>
-                    </div>
+                <div class="mchatMessenger__messageContainer">
+                    <span class="mchatMessenger__messageText">Ver Catálogo/Produtos</span>
+                </div>
 
-                    <div class="mchatMessenger__messageContainer">
-                        <span class="mchatMessenger__messageText">Atendimento Comercial</span>
-                    </div>
+                <div class="mchatMessenger__messageContainer">
+                    <span class="mchatMessenger__messageText">Atendimento Comercial</span>
+                </div>
 
-                    <div class="mchatMessenger__messageContainer">
-                        <span class="mchatMessenger__messageText">Suporte</span>
-                    </div>
-                </section>
+                <div class="mchatMessenger__messageContainer">
+                    <span class="mchatMessenger__messageText">Suporte</span>
+                </div>
+            </section>
 
-                <footer class="mchatMessenger__footer" role="">
-                    <div class="mchatMessenger__wrapperInput">
-                        <input type="text" id="" class="mchatMessenger__inputText" placeholder="Digite e pressione enter para enviar">
-                        <button type="button" id="" class="mchatBtn mchatBtn__send">
-                            <span class="mchatIcon mchatIcon__send"></span>
-                        </button>
-                    </div>
-                </footer>
+            <footer class="mchatMessenger__footer" role="">
+                <div class="mchatMessenger__wrapperInput">
+                    <input type="text" id="" class="mchatMessenger__inputText" placeholder="Digite e pressione enter para enviar">
+                    <button type="button" id="" class="mchatBtn mchatBtn__send">
+                        <span class="mchatIcon mchatIcon__send"></span>
+                    </button>
+                </div>
+            </footer>
 
-            </div>
-
+        </div>
+        <!-- Container elements -->
+        <div class="mchatContainer mchatContainer--right">
             <!-- Wrapper tooltips -->
-            <div class="" style="display: none">
-                <span class="mchat__tooltip"><?php echo $mchat_tooltip ?></span>
-            </div>
-
+            <span class="mchatTooltip__text"><?php echo $mchat_tooltip ?></span>
+            
             <!-- Wrapper buttons open/close -->
-            <div class="" style="display: none">
-                <button type="button" id="" class="mcha__button">
-                    <span class="mchat__icon mchat__icon--messenger"></span>
-                    <span class="mchat__icon mchat__icon--close"></span>
-                </button>
-            </div>
+            <button type="button" id="" class="mchatBtn mchatBtn__openAndClose">
+                <span class="mchatIcon mchatIcon__messenger mchatIcon--enabled"></span>
+                <span class="mchatIcon mchatIcon__close mchatIcon--disabled"></span>
+            </button>
         </div>
         <?php
     }
