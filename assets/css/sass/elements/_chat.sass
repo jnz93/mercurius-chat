@@ -9,17 +9,27 @@
     font-size: 62.5%
 
     background-color: $white0
-    width: $widthChatDesktop
     max-height: $heightChatDesktop
 
-    border-radius: $halfDefaultPaddingDesktop
     border: 1px solid $light0
     box-shadow: 0px 3px 6px $light0
     overflow: hidden
 
     position: absolute
-    bottom: 104px
-    right: 32px
+    z-index: $frontIndex
+
+    @include respond-above('sm')
+        width: $widthChatDesktop
+        border-radius: $halfDefaultPaddingDesktop
+        bottom: 104px
+        right: 32px
+
+    @include respond-below('sm')
+        width: $widthChatMobile
+        border-radius: $halfDefaultPaddingDesktop / 2
+        bottom: 88px
+        right: 16px
+    
 
     &--disabled
         display: none
@@ -30,18 +40,26 @@
     &__header
         background-color: $secondary
         width: 100%
-        padding-top: $halfDefaultPaddingDesktop
-        padding-right: $defaultPaddingDesktop
-        padding-left: $defaultPaddingDesktop
+
+        @include respond-above('sm')
+            padding: $halfDefaultPaddingDesktop $defaultPaddingDesktop
+
+        @include respond-below('sm')
+            padding: $halfDefaultPaddingDesktop $defaultPaddingDesktop / 2
 
     &__body
         width: 100%
         min-height: 275px
-        padding-top: $halfDefaultPaddingDesktop
-        padding-right: $defaultPaddingDesktop
-        padding-bottom: $halfDefaultPaddingDesktop
-        padding-left: $defaultPaddingDesktop
         position: relative
+        
+        @include respond-above('sm')
+            padding: $halfDefaultPaddingDesktop
+
+        @include respond-below('sm')
+            padding-top: $halfDefaultPaddingDesktop / 2
+            padding-right: $defaultPaddingDesktop / 2
+            padding-bottom: $halfDefaultPaddingDesktop / 2
+            padding-left: $defaultPaddingDesktop / 2
 
     &__footer
         background-color: $white0
@@ -61,6 +79,7 @@
         @extend .mchatMessenger__title
         font-size: $fs-16
         font-weight: $fw_normal
+        margin: 0
 
     // Mensagens
     &__messageContainer

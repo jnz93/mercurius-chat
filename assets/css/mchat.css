@@ -13,6 +13,8 @@
     FONT SIZES AND LINE HEIGHTS */
 /*
     VARS, MIXINS and PATTERNS*/
+/*------------------------------------*\
+    MEDIA QUERIES */
 .mchatBtn {
   border: 0;
   border-radius: 0;
@@ -20,7 +22,7 @@
   outline: none;
   margin: 0 !important;
   padding: 0 !important; }
-  .mchatBtn:hover {
+  .mchatBtn:hover, .mchatBtn:focus, .mchatBtn:active, .mchatBtn:visited {
     background-color: inherit; }
   .mchatBtn__send {
     background: #E5E9ED;
@@ -29,10 +31,16 @@
     height: 48px;
     overflow: hidden; }
   .mchatBtn__openAndClose {
-    width: 64px;
-    height: 64px;
     background-color: #FF5722;
     border-radius: 100%; }
+    @media (min-width: 768px) {
+      .mchatBtn__openAndClose {
+        width: 64px;
+        height: 64px; } }
+    @media (max-width: 767px) {
+      .mchatBtn__openAndClose {
+        width: 48px;
+        height: 48px; } }
     .mchatBtn__openAndClose:hover {
       background-color: #FF5722;
       box-shadow: 0px 3px 6px #E5E9ED; }
@@ -53,11 +61,21 @@
     color: #FFFFFF;
     fill: #FFFFFF;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40px; }
+    background-position: center; }
+    @media (min-width: 768px) {
+      .mchatIcon__messenger, .mchatIcon__close {
+        background-size: 40px; } }
+    @media (max-width: 767px) {
+      .mchatIcon__messenger, .mchatIcon__close {
+        background-size: 30px; } }
   .mchatIcon__close {
-    background-image: url("../icons/icon_close.svg");
-    background-size: 56px; }
+    background-image: url("../icons/icon_close.svg"); }
+    @media (min-width: 768px) {
+      .mchatIcon__close {
+        background-size: 56px; } }
+    @media (max-width: 767px) {
+      .mchatIcon__close {
+        background-size: 40px; } }
   .mchatIcon--disabled {
     display: none; }
   .mchatIcon--enabled {
@@ -77,37 +95,56 @@
     FONT SIZES AND LINE HEIGHTS */
 /*
     VARS, MIXINS and PATTERNS*/
+/*------------------------------------*\
+    MEDIA QUERIES */
 .mchatMessenger {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 62.5%;
   background-color: #FFFFFF;
-  width: 360px;
   max-height: 495px;
-  border-radius: 16px;
   border: 1px solid #EDF1F6;
   box-shadow: 0px 3px 6px #EDF1F6;
   overflow: hidden;
   position: absolute;
-  bottom: 104px;
-  right: 32px; }
+  z-index: 999; }
+  @media (min-width: 768px) {
+    .mchatMessenger {
+      width: 360px;
+      border-radius: 16px;
+      bottom: 104px;
+      right: 32px; } }
+  @media (max-width: 767px) {
+    .mchatMessenger {
+      width: 320px;
+      border-radius: 8px;
+      bottom: 88px;
+      right: 16px; } }
   .mchatMessenger--disabled {
     display: none; }
   .mchatMessenger--enabled {
     display: block; }
   .mchatMessenger__header {
     background-color: #FF5722;
-    width: 100%;
-    padding-top: 16px;
-    padding-right: 32px;
-    padding-left: 32px; }
+    width: 100%; }
+    @media (min-width: 768px) {
+      .mchatMessenger__header {
+        padding: 16px 32px; } }
+    @media (max-width: 767px) {
+      .mchatMessenger__header {
+        padding: 16px 16px; } }
   .mchatMessenger__body {
     width: 100%;
     min-height: 275px;
-    padding-top: 16px;
-    padding-right: 32px;
-    padding-bottom: 16px;
-    padding-left: 32px;
     position: relative; }
+    @media (min-width: 768px) {
+      .mchatMessenger__body {
+        padding: 16px; } }
+    @media (max-width: 767px) {
+      .mchatMessenger__body {
+        padding-top: 8px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        padding-left: 16px; } }
   .mchatMessenger__footer {
     background-color: #FFFFFF;
     width: 100%;
@@ -121,7 +158,8 @@
     margin-bottom: 8px; }
   .mchatMessenger__subtitle {
     font-size: 16px;
-    font-weight: 400; }
+    font-weight: 400;
+    margin: 0; }
   .mchatMessenger__messageContainer {
     background: #EDF1F6;
     margin: 8px 0;
@@ -159,6 +197,8 @@
     FONT SIZES AND LINE HEIGHTS */
 /*
     VARS, MIXINS and PATTERNS*/
+/*------------------------------------*\
+    MEDIA QUERIES */
 .mchatContainer {
   width: auto;
   height: auto;
@@ -168,24 +208,41 @@
   position: absolute;
   bottom: 32px; }
   .mchatContainer--right {
-    right: 32px;
     left: auto; }
+    @media (min-width: 768px) {
+      .mchatContainer--right {
+        right: 32px; } }
+    @media (max-width: 767px) {
+      .mchatContainer--right {
+        right: 16px; } }
   .mchatContainer--left {
-    left: 32px;
     right: auto; }
+    @media (min-width: 768px) {
+      .mchatContainer--left {
+        left: 32px; } }
+    @media (max-width: 767px) {
+      .mchatContainer--left {
+        left: 16px; } }
 
 .mchatTooltip__text {
   font-family: "IBM Plex Sans", sans-serif;
-  font-size: 16px;
   color: #FFFFFF;
   text-transform: uppercase;
   margin: 0;
   padding: 0;
-  padding: 8px 16px;
   border-radius: 4px;
   border: 1px solid #FF5722;
   background-color: #FF5722;
   box-shadow: 0px 3px 6px #E5E9ED;
   width: max-content;
-  position: absolute;
-  top: -56px; }
+  position: absolute; }
+  @media (min-width: 768px) {
+    .mchatTooltip__text {
+      font-size: 16px;
+      padding: 8px 16px;
+      top: -56px; } }
+  @media (max-width: 767px) {
+    .mchatTooltip__text {
+      font-size: 12px;
+      padding: 4px 8px;
+      top: -36px; } }

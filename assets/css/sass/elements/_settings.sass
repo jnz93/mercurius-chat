@@ -2,7 +2,9 @@
     VARS, MIXINS and PATTERNS*/
 
 $widthChatDesktop: 360px
+$widthChatMobile: 320px
 $heightChatDesktop: 495px
+$frontIndex: 999
 
 // Paddings
 $defaultPaddingDesktop: 32px
@@ -11,9 +13,13 @@ $halfDefaultPaddingDesktop: $defaultPaddingDesktop / 2
 // Margins
 $defaultMarginDesktop: 8px
 
-// Botões
+// Botão desktop
 $widthBtnDesktop: 64px
 $heightBtnDesktop: $widthBtnDesktop
+
+// Botão mobile
+$widthBtnMobile: 48px
+$heightBtnMobile: $widthBtnMobile
 
 // Icons
 $srcIconSend: url(../icons/icon_send.svg)
@@ -24,4 +30,49 @@ $srcIconClose: url('../icons/icon_close.svg')
 // Shadows
 $defaultShadow: 0px 3px 6px $light-1
 
-// MIXINS
+/*------------------------------------*\
+    MEDIA QUERIES
+
+// A map/arr of breakpoints
+$breakpoints: ('xs': 425px, 'sm': 768px, 'md': 992px, 'lg': 1200px)
+
+//
+//  RESPOND ABOVE - usage respond-above('sm')
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin respond-above($breakpoint)
+    @if map-has-key($breakpoints, $breakpoint)
+        $breakpoint-value: map-get($breakpoints, $breakpoint)
+
+        @media (min-width: $breakpoint-value)
+            @content
+    @else
+        @warn 'Invalid breakpoint: #{$breakpoint}.'
+
+//
+//  RESPOND BELOW - usage respond-below('lg')
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin respond-below($breakpoint)
+    @if map-has-key($breakpoints, $breakpoint)
+        $breakpoint-value: map-get($breakpoints, $breakpoint)
+
+        @media (max-width: ($breakpoint-value - 1))
+            @content
+    @else
+        @warn 'Invalid breakpoint: #{$breakpoint}'
+
+//
+//  RESPOND BETWEEN - usage respond-between('sm', 'lg')
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin respond-between($lower, $upper)
+    @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper)
+        $lower-breakpoint: map-get($breakpoints, $lower)
+        $upper-breakpoint: map-get($breakpoints, $upper)
+
+        @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1))
+            @content
+    @else
+        
+        @if ( map-has-key($breakpoints, $lower) == false )
+            @warn 'Your lower breakpoint was invalid: #{$lower}.'
+        @if ( map-has-key($breakpoints, $upper) == false )
+            @warn 'Your upper breakpoint was invalid: #{$upper}.'

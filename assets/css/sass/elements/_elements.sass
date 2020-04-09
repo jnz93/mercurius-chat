@@ -14,24 +14,32 @@
     bottom: 32px
 
     &--right
-        right: 32px
         left: auto
-    
+
+        @include respond-above('sm')
+            right: 32px
+
+        @include respond-below('sm')
+            right: 16px
+        
     &--left
-        left: 32px
         right: auto
+
+        @include respond-above('sm')
+            left: 32px
+            
+        @include respond-below('sm')
+            left: 16px
 
 .mchatTooltip
 
     &__text
         font-family: $family
-        font-size: $fs-16
         color: $white0
         text-transform: uppercase
         margin: 0
         padding: 0
 
-        padding: 8px 16px
         border-radius: 4px
         border: 1px solid $secondary
 
@@ -39,4 +47,13 @@
         box-shadow: $defaultShadow
         width: max-content
         position: absolute
-        top: -56px
+
+        @include respond-above('sm')
+            font-size: $fs-16
+            padding: 8px 16px
+            top: -56px
+
+        @include respond-below('sm')
+            font-size: $fs-12
+            padding: 4px 8px
+            top: -36px

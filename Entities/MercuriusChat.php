@@ -46,7 +46,7 @@ class MercuriusChat{
 
     public function mchat_enqueue_gfonts()
     {
-        echo '<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">';
+        echo '<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700&display=swap" rel="stylesheet">';
     }
     /**
      * Registrar options de configurações do plugin
