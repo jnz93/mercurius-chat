@@ -86,8 +86,21 @@
         background: $light0
         margin: $defaultMarginDesktop 0
         padding: 8px $halfDefaultPaddingDesktop
+        margin-left: 4px
         border-radius: $defaultMarginDesktop / 2
         position: relative
+
+        &::before
+            content: ''
+            background-color: $light0
+            width: 55px
+            height: 15px
+            border-bottom-left-radius: 100%
+
+            position: absolute
+            top: 0
+            left: -12px
+            z-index: -1
 
     &__messageText
         font-size: $fs-16
