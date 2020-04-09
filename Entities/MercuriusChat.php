@@ -287,46 +287,70 @@ class MercuriusChat{
      */
     public function mchat_render_plugin()
     {
-        $mchat_phone_number      = get_option('mchat_phone_number');
-        $mchat_contact_message   = get_option('mchat_contact_message');
-        $mchat_screen_position   = get_option('mchat_screen_position');
-        $mchat_custom_icon       = get_option('mchat_custom_icon');
-        $mchat_tooltip           = get_option('mchat_tooltip');
-        $mchat_option_message     = get_option('mchat_option_message');
-        $mchat_text_button       = get_option('mchat_text_button');
+        # HEADER
+        $mchat_title            = get_option('mchat_title');
+        $mchat_description      = get_option('mchat_description');
+
+        # OPÇÕES CHAT
+        $option_message         = get_option('mchat_option_message');
+        $option_service_1       = get_option('mchat_option_service_1');
+        $service_1_endpoint     = get_option('mchat_service_1_endpoint');
+        $option_service_2       = get_option('mchat_option_service_2');
+        $service_2_endpoint     = get_option('mchat_service_2_endpoint');
+        $option_service_3       = get_option('mchat_option_service_3');
+        $service_3_endpoint     = get_option('mchat_service_3_endpoint');
+
+        # CONTACT
+        $phone_number           = get_option('mchat_phone_number');
+        $contact_message        = get_option('mchat_contact_message');
+        $link_open_whatsapp     = 'https://wa.me/55' . str_replace(' ', '', $phone_number);
+
+        # ANOTHERS SETTINGS
+        $screen_position        = get_option('mchat_screen_position');
+        $custom_icon            = get_option('mchat_custom_icon');
+        $tooltip                = get_option('mchat_tooltip');
 
         ?>
         <!-- Wrapper chat -->
         <div id="mchatMessenger" class="mchatMessenger mchatMessenger--disabled">
             <header class="mchatMessenger__header" role="">
-                <h3 class="mchatMessenger__title">Bem vindo!</h3>
-                <p class="mchatMessenger__subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                <h3 class="mchatMessenger__title"><?php echo ( !empty($mchat_title) ? $mchat_title : _e('Configure o título do chat', 'mchat') ) ?></h3>
+                <p class="mchatMessenger__subtitle"><?php echo ( !empty($mchat_description) ? $mchat_description : _e('Configure a descrição do chat', 'mchat') ) ?></p>
             </header>
 
             <section class="mchatMessenger__body">
                 <div class="mchatMessenger__messageContainer">
-                    <span class="mchatMessenger__messageText"><?php echo $mchat_option_message; ?></span>
+                    <span class="mchatMessenger__messageText"><?php echo ( !empty($option_message) ? $option_message : _e('Bem vindo. Nós do(a) <b>'. get_bloginfo('site_title') . '</b> estamos a sua disposição. Digite o que você precisa e pressione enter :)' , 'mchat') ) ?></span>
                 </div>
 
-                <div class="mchatMessenger__messageContainer">
-                    <span class="mchatMessenger__messageText">Ver Catálogo/Produtos</span>
-                </div>
+                <?php if (!empty($option_service_1)) : ?>
+                    <div class="mchatMessenger__messageContainer">
+                        <span class="mchatMessenger__messageText"><a href="<?php echo get_site_url() . $service_1_endpoint ?>"><?php echo $option_service_1 ?></a></span>
+                    </div>
+                <?php endif; ?>
+                    
+                <?php if (!empty($option_service_1)) : ?>
+                    <div class="mchatMessenger__messageContainer">
+                        <span class="mchatMessenger__messageText"><a href="<?php echo get_site_url() . $service_2_endpoint ?>"><?php echo $option_service_2 ?></a></span>
+                    </div>
+                <?php endif; ?>
 
-                <div class="mchatMessenger__messageContainer">
-                    <span class="mchatMessenger__messageText">Atendimento Comercial</span>
-                </div>
-
-                <div class="mchatMessenger__messageContainer">
-                    <span class="mchatMessenger__messageText">Suporte</span>
-                </div>
+                <?php if (!empty($option_service_1)) : ?>
+                    <div class="mchatMessenger__messageContainer">
+                        <span class="mchatMessenger__messageText"><a href="<?php echo get_site_url() . $service_3_endpoint ?>"><?php echo $option_service_3 ?></a></span>
+                    </div>
+                <?php endif; ?>
             </section>
 
             <footer class="mchatMessenger__footer" role="">
                 <div class="mchatMessenger__wrapperInput">
                     <input type="text" id="" class="mchatMessenger__inputText" placeholder="Digite e pressione enter para enviar">
-                    <button type="button" id="" class="mchatBtn mchatBtn__send">
+                    <button style="display: none;" type="button" id="" class="mchatBtn mchatBtn__send">
                         <span class="mchatIcon mchatIcon__send"></span>
                     </button>
+                    <a href="<?php echo $link_open_whatsapp ?>" id="" class="mchatBtn mchatBtn__send">
+                        <span class="mchatIcon mchatIcon__send"></span>
+                    </a>
                 </div>
             </footer>
 
@@ -334,7 +358,7 @@ class MercuriusChat{
         <!-- Container elements -->
         <div class="mchatContainer mchatContainer--right">
             <!-- Wrapper tooltips -->
-            <span class="mchatTooltip mchatTooltip__text"><?php echo $mchat_tooltip ?></span>
+            <span class="mchatTooltip mchatTooltip__text"><?php echo $tooltip ?></span>
             
             <!-- Wrapper buttons open/close -->
             <button type="button" id="" class="mchatBtn mchatBtn__openAndClose" onclick="openAndCloseChat(jQuery(this))">
