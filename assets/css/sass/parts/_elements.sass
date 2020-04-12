@@ -3,8 +3,8 @@
 
 
 .mchatContainer
-    width: auto
-    height: auto
+    font-family: $family
+    font-size: 62.5%
 
     display: flex
     flex-wrap: wrap
@@ -12,6 +12,14 @@
 
     position: absolute
     bottom: 32px
+    @include mchat-shadow
+    
+    
+    @include respond-above('sm')
+        width: 390px
+        max-height: 540px
+        border-radius: 4px
+        overflow: hidden
 
     &--right
         left: auto
@@ -57,3 +65,21 @@
             font-size: $fs-12
             padding: 4px 8px
             top: -36px
+
+.mchatNav
+    @include reset-element
+    width: 100%
+    padding-left: 8px
+
+
+    &__item
+        @include reset-element
+        font-size: $fs-16
+        color: $dark-1
+        margin-bottom: 8px
+
+    &__link
+        @include reset-link
+        color: $dark-1
+        font-weight: $fw_bold
+        

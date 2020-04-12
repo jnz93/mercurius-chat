@@ -1,0 +1,32 @@
+@import "_styleguide.sass"
+@import "_settings.sass"
+
+.mchatBody
+    @extend .mchatHeader
+    background-color: $white-1
+    height: 320px
+
+    @include flex-end-items
+
+    &__title
+        font-size: $fs-16
+        font-weight: $fw_normal
+        color: $dark0
+
+        @include reset-element
+        margin-bottom: 8px
+
+    &__label
+        @include reset-element
+        font-size: $fs-14
+        font-weight: $fw_normal
+        color: $dark-1
+
+    &__content
+        width: 100%
+        margin-bottom: 16px
+
+.mchatBody__footer
+    @include reset-element
+    width: 100%
+    text-align: center

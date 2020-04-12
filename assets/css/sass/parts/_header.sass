@@ -1,0 +1,29 @@
+/*
+    .block
+    .block__element
+    .block__element--modifier*/
+@import "_styleguide.sass"
+@import "_settings.sass"
+
+.mchatHeader
+    background-color: $primary
+    height: 210px
+    width: 100%
+
+    @include reset-element
+    padding: 16px 32px
+
+    &__title
+        font-size: $fs-21
+        font-weight: $fw_bold
+        color: $white0
+
+        @include reset-element
+        margin-bottom: 8px
+
+    &__description
+        font-size: $fs-16
+        font-weight: $fw_normal
+        color: $white0
+
+        @include reset-element
