@@ -66,6 +66,7 @@
             padding: 4px 8px
             top: -36px
 
+// Navigation
 .mchatNav
     @include reset-element
     width: 100%
@@ -83,3 +84,55 @@
         color: $dark-1
         font-weight: $fw_bold
         
+// Person/Attendant
+.mchatPerson
+    @include reset-element
+    width: 100%
+    height: auto
+    margin-bottom: 16px
+
+    display: flex
+    flex-wrap: wrap
+    align-content: center
+
+    &__thumbContainer
+        @include reset-element
+        @include mchat-shadow
+        border-radius: 100%
+        margin-right: 16px
+        position: relative
+
+        &--48px
+            width: 48px
+            height: 48px
+
+    &__infoContainer
+        display: flex
+        flex-wrap: wrap
+        align-content: center
+
+    &__status
+       width: 16px
+       height: 16px
+       border-radius: 100%
+       position: absolute 
+       bottom: 0
+       right: -4px
+
+       &--online
+           background-color: $online
+
+    &__name
+        @include reset-element
+        font-size: $fs-16
+        font-weight: $fw_bold
+        color: $dark0
+        margin-bottom: 2px
+        width: 100%
+        display: block
+
+    &__role
+        @include reset-element
+        font-size: $fs-12
+        font-weight: $fw_normal
+        color: $dark-1

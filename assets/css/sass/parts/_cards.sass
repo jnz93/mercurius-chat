@@ -1,0 +1,21 @@
+@import "_styleguide.sass"
+@import "_settings.sass"
+
+.mchatCard
+    @include reset-element
+    @include mchat-shadow
+    background-color: $white0
+    width: calc(100% - 32px)
+    height: auto
+    border-radius: 4px
+    padding: 16px
+
+    position: absolute
+    top: 140px
+    left: 16px
+
+    &__title
+        @include reset-element
+        font-size: $fs-16
+        color: $dark0
+        margin-bottom: 16px

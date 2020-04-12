@@ -1,0 +1,21 @@
+@import "_styleguide.sass"
+@import "_settings.sass"
+
+.btnPrimary
+    @include reset-button
+    background-color: $primary !important
+    width: 100%
+    height: auto
+    padding: 16px 0
+
+    display: flex
+    align-content: center
+    justify-content: center
+
+    &__text
+        @include reset-element
+        font-size: $fs-16
+        font-weight: $fw_bold
+        text-transform: capitalize
+        color: $white0
+        margin-right: 4px
