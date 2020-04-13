@@ -7,10 +7,16 @@
     width: 100%
     height: auto
     padding: 16px 0
+    margin-bottom: 8px
 
     display: flex
     align-content: center
     justify-content: center
+
+    font-size: $fs-16
+    font-weight: $fw_bold
+    text-transform: capitalize
+    color: $white0
 
     &__text
         @include reset-element
@@ -19,3 +25,8 @@
         text-transform: capitalize
         color: $white0
         margin-right: 4px
+
+    &--ghost
+        background: none !important
+        color: $primary
+        border: 1px solid $primary !important

@@ -211,13 +211,20 @@
 /*------------------------------------*\
     MEDIA QUERIES */
 .mchatContainer {
-  width: auto;
-  height: auto;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 62.5%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   position: absolute;
-  bottom: 32px; }
+  bottom: 32px;
+  box-shadow: 0px 3px 6px #E5E9ED; }
+  @media (min-width: 768px) {
+    .mchatContainer {
+      width: 390px;
+      max-height: 540px;
+      border-radius: 4px;
+      overflow: hidden; } }
   .mchatContainer--right {
     left: auto; }
     @media (min-width: 768px) {
@@ -257,3 +264,388 @@
       font-size: 12px;
       padding: 4px 8px;
       top: -36px; } }
+
+.mchatNav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  padding-left: 8px; }
+  .mchatNav__item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
+    color: #212121;
+    margin-bottom: 8px; }
+  .mchatNav__link {
+    color: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #212121;
+    font-weight: 700; }
+
+.mchatPerson {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center; }
+  .mchatPerson__thumbContainer {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-shadow: 0px 3px 6px #E5E9ED;
+    border-radius: 100%;
+    margin-right: 16px;
+    position: relative; }
+    .mchatPerson__thumbContainer--48px {
+      width: 48px;
+      height: 48px; }
+  .mchatPerson__infoContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center; }
+  .mchatPerson__status {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 0;
+    right: -4px; }
+    .mchatPerson__status--online {
+      background-color: #0BE881; }
+  .mchatPerson__name {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #757575;
+    margin-bottom: 2px;
+    width: 100%;
+    display: block; }
+  .mchatPerson__role {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 400;
+    color: #212121; }
+
+/*
+    .block
+    .block__element
+    .block__element--modifier*/
+/*------------------------------------*\
+    PALET OF COLORS */
+/*------------------------------------*\
+    TEXT STYLES */
+/*------------------------------------*\
+    Font Family */
+/*------------------------------------*\
+    FONT SIZES AND LINE HEIGHTS */
+/*
+    VARS, MIXINS and PATTERNS*/
+/*------------------------------------*\
+    MEDIA QUERIES */
+.mchatHeader, .mchatBody {
+  background-color: #1E272E;
+  height: 210px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding: 16px 32px; }
+  .mchatHeader__title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 8px; }
+  .mchatHeader__description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+
+/*------------------------------------*\
+    PALET OF COLORS */
+/*------------------------------------*\
+    TEXT STYLES */
+/*------------------------------------*\
+    Font Family */
+/*------------------------------------*\
+    FONT SIZES AND LINE HEIGHTS */
+/*
+    VARS, MIXINS and PATTERNS*/
+/*------------------------------------*\
+    MEDIA QUERIES */
+.mchatBody {
+  background-color: #FFFFFF;
+  height: 320px;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  justify-content: flex-end; }
+  .mchatBody__title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #757575;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 8px; }
+  .mchatBody__label {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #212121; }
+  .mchatBody__content {
+    width: 100%;
+    margin-bottom: 16px; }
+  .mchatBody__containerResults {
+    background-color: #FFFFFF;
+    width: calc(100% - 32px);
+    height: 390px;
+    box-shadow: 0px 3px 6px #E5E9ED;
+    padding: 16px;
+    position: absolute;
+    left: 16px; }
+
+.mchatBody__footer {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  text-align: center; }
+
+/*------------------------------------*\
+    PALET OF COLORS */
+/*------------------------------------*\
+    TEXT STYLES */
+/*------------------------------------*\
+    Font Family */
+/*------------------------------------*\
+    FONT SIZES AND LINE HEIGHTS */
+/*
+    VARS, MIXINS and PATTERNS*/
+/*------------------------------------*\
+    MEDIA QUERIES */
+.mchatCard {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-shadow: 0px 3px 6px #E5E9ED;
+  background-color: #FFFFFF;
+  width: calc(100% - 32px);
+  height: auto;
+  border-radius: 4px;
+  padding: 16px;
+  position: absolute;
+  top: 140px;
+  left: 16px; }
+  .mchatCard__title {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
+    color: #757575;
+    margin-bottom: 16px; }
+
+.mchatCardProduct {
+  background-color: #FFFFFF;
+  width: 100%;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0px 3px 6px #E5E9ED;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center; }
+  .mchatCardProduct__container {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    flex-flow: row; }
+  .mchatCardProduct__wrapperThumb {
+    width: 64px;
+    height: 64px;
+    margin-right: 8px; }
+  .mchatCardProduct__wrapperTitle {
+    width: calc(100% - 72px);
+    height: auto; }
+  .mchatCardProduct__wrapperDesc {
+    width: 65%;
+    height: auto;
+    margin-right: 8px; }
+  .mchatCardProduct__boxPrice {
+    width: calc(35% - 8px);
+    height: auto; }
+  .mchatCardProduct__separator {
+    background-color: #E5E9ED;
+    width: 100%;
+    height: 1px;
+    margin: 8px 0px; }
+  .mchatCardProduct__title {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #212121; }
+  .mchatCardProduct__desc {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    color: #757575; }
+  .mchatCardProduct__price {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #212121; }
+  .mchatCardProduct__label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #757575;
+    margin-top: 4px; }
+
+.mchatCardDetails {
+  background-color: #FFFFFF;
+  width: 100%; }
+  .mchatCardDetails__container {
+    margin-bottom: 16px; }
+  .mchatCardDetails__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    flex-flow: row;
+    overflow: hidden; }
+  .mchatCardDetails__item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 96px;
+    height: 96px;
+    margin-right: 8px;
+    box-shadow: 0px 3px 6px #E5E9ED; }
+  .mchatCardDetails__desc {
+    font-size: 16px;
+    line-height: 24px;
+    color: #757575;
+    font-weight: 400; }
+
+.mchatCardFaq {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  overflow: hidden;
+  box-shadow: 0px 3px 6px #E5E9ED;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  flex-flow: wrap; }
+  .mchatCardFaq__content {
+    border-top: 1px solid #E5E9ED;
+    margin-top: 8px;
+    padding-top: 8px; }
+    .mchatCardFaq__content--hide {
+      display: none; }
+    .mchatCardFaq__content--show {
+      display: block; }
+  .mchatCardFaq__title {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    color: #212121; }
+  .mchatCardFaq__text {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #757575; }
+  .mchatCardFaq--expand {
+    height: auto; }
+
+/*------------------------------------*\
+    PALET OF COLORS */
+/*------------------------------------*\
+    TEXT STYLES */
+/*------------------------------------*\
+    Font Family */
+/*------------------------------------*\
+    FONT SIZES AND LINE HEIGHTS */
+/*
+    VARS, MIXINS and PATTERNS*/
+/*------------------------------------*\
+    MEDIA QUERIES */
+.btnPrimary {
+  background: none !important;
+  border: none !important;
+  text-decoration: none !important;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #1E272E !important;
+  width: 100%;
+  height: auto;
+  padding: 16px 0;
+  margin-bottom: 8px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #FFFFFF; }
+  .btnPrimary:hover {
+    background: none; }
+  .btnPrimary__text {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    margin-right: 4px; }
+  .btnPrimary--ghost {
+    background: none !important;
+    color: #1E272E;
+    border: 1px solid #1E272E !important; }

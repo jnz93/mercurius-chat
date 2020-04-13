@@ -19,3 +19,131 @@
         font-size: $fs-16
         color: $dark0
         margin-bottom: 16px
+
+// Card product
+.mchatCardProduct
+    background-color: $white0
+    width: 100%
+    border-radius: 4px
+    padding: 8px
+    margin-bottom: 16px
+    @include mchat-shadow
+    @include flex-middle-items
+    
+    &__container
+        @include flex-middle-items
+        flex-flow: row
+
+    &__wrapperThumb
+        width: 64px
+        height: 64px
+        margin-right: 8px
+
+    &__wrapperTitle
+        width: calc(100% - 72px)
+        height: auto
+
+    &__wrapperDesc
+        width: 65%
+        height: auto
+        margin-right: 8px
+
+    &__boxPrice
+        width: calc(35% - 8px)
+        height: auto
+
+    &__separator
+        background-color: $light-1
+        width: 100%
+        height: 1px
+        margin: 8px 0px
+
+    &__title
+        @include title-card-product
+
+    &__desc
+        font-size: $fs-14
+        line-height: $lh-14
+        font-weight: $fw_normal
+        color: $dark0
+
+    &__price
+        @include reset-element
+        font-size: $fs-16
+        font-weight: $fw_bold
+        line-height: $lh-16
+        color: $dark-1
+
+    &__label
+        font-size: $fs-12
+        font-weight: $fw_normal
+        color: $dark0
+        margin-top: 4px
+
+
+// Card details product
+.mchatCardDetails
+    background-color: $white0
+    width: 100%
+
+    &__container
+        margin-bottom: 16px
+        
+    &__list
+        @include reset-element
+        @include flex-middle-items
+        flex-flow: row
+        overflow: hidden
+        
+    &__item
+        @include reset-element
+        width: 96px
+        height: 96px
+        margin-right: 8px
+        @include mchat-shadow
+        
+    &__desc
+        font-size: $fs-16
+        line-height: $lh-16
+        color: $dark0
+        font-weight: $fw_normal
+
+// Card faq
+.mchatCardFaq
+    @include reset-element
+    width: 100%
+    height: 40px
+    padding: 8px
+    overflow: hidden
+    @include mchat-shadow
+    @include flex-middle-items
+    flex-flow: wrap
+
+    &__content
+        border-top: 1px solid $light-1
+        margin-top: 8px
+        padding-top: 8px
+
+        &--hide
+            display: none
+
+        &--show
+            display: block
+        
+    &__title
+        @include reset-element
+        width: 100%
+        font-size: $fs-16
+        font-weight: $fw_bold
+        color: $dark-1
+
+
+    &__text
+        @include reset-element
+        font-size: $fs-16
+        font-weight: $fw_normal
+        line-height: $lh-16
+        color: $dark0
+    
+    &--expand
+        height: auto
