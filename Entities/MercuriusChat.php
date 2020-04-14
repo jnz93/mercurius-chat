@@ -3,6 +3,7 @@
   * Class MercuriusChat
   */
 include 'MercuriusSettings.php';
+include 'MercuriusUsersManagement.php';
 class MercuriusChat{
 
     protected static $instance;
@@ -16,6 +17,15 @@ class MercuriusChat{
         add_action('admin_init', 'MercuriusSettings::mchat_register_settings');
         add_action('init', array($this, 'mchat_register_cpt'));
 
+        // User management
+        add_action('user_new_form', 'MercuriusUsersManagement::mchat_usermeta_form_fields');
+        add_action('show_user_profile', 'MercuriusUsersManagement::mchat_usermeta_form_fields');
+        add_action('edit_user_profile', 'MercuriusUsersManagement::mchat_usermeta_form_fields');
+
+        // Save custom field user
+        add_action('user_register', 'MercuriusUsersManagement::mchat_usermeta_save_fields');
+        add_action('profile_update', 'MercuriusUsersManagement::mchat_usermeta_save_fields');
+        
         // Enfileiramento de scripts
         add_action('wp_enqueue_scripts', array($this, 'mchat_enqueue_scripts'));
         add_action('wp_head', array($this, 'mchat_enqueue_gfonts'));
@@ -47,13 +57,13 @@ class MercuriusChat{
     {
         echo '<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700&display=swap" rel="stylesheet">';
     }
+
     /**
      * Registrar options de configurações do plugin
      */
     public function mchat_register_cpt()
     {
         // CPT: FAQ
-
         $labels = array(
             'name'                  => _x( 'Mchat FAQ', 'Post type general name', 'mchat' ),
             'singular_name'         => _x( 'FAQ', 'Post type singular name', 'mchat' ),
@@ -106,8 +116,7 @@ class MercuriusChat{
     {
         add_menu_page('Mercurius Chat', 'MChat', 'administrator', 'm-chat', 'MercuriusChat::mchat_admin_page', 'dashicons-format-status', 65);
     }
-
-    
+  
     /**
      * Chamada da página da inicial do plugin
      */
