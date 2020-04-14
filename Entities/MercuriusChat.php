@@ -14,6 +14,7 @@ class MercuriusChat{
     {
         add_action('admin_menu', array($this, 'mchat_add_menu'));
         add_action('admin_init', 'MercuriusSettings::mchat_register_settings');
+        add_action('init', array($this, 'mchat_register_cpt'));
 
         // Enfileiramento de scripts
         add_action('wp_enqueue_scripts', array($this, 'mchat_enqueue_scripts'));
@@ -49,9 +50,53 @@ class MercuriusChat{
     /**
      * Registrar options de configurações do plugin
      */
-    public function mchat_register_options()
+    public function mchat_register_cpt()
     {
-        // add opções e configurações
+        // CPT: FAQ
+
+        $labels = array(
+            'name'                  => _x( 'Mchat FAQ', 'Post type general name', 'mchat' ),
+            'singular_name'         => _x( 'FAQ', 'Post type singular name', 'mchat' ),
+            'menu_name'             => _x( 'Mchat FAQ', 'Admin Menu text', 'mchat' ),
+            'name_admin_bar'        => _x( 'FAQ', 'Add New on Toolbar', 'mchat' ),
+            'add_new'               => __( 'Add New', 'mchat' ),
+            'add_new_item'          => __( 'Add New FAQ', 'mchat' ),
+            'new_item'              => __( 'New FAQ', 'mchat' ),
+            'edit_item'             => __( 'Edit FAQ', 'mchat' ),
+            'view_item'             => __( 'View FAQ', 'mchat' ),
+            'all_items'             => __( 'All Mchat FAQ', 'mchat' ),
+            'search_items'          => __( 'Search Mchat FAQ', 'mchat' ),
+            'parent_item_colon'     => __( 'Parent Mchat FAQ:', 'mchat' ),
+            'not_found'             => __( 'No Mchat FAQ found.', 'mchat' ),
+            'not_found_in_trash'    => __( 'No Mchat FAQ found in Trash.', 'mchat' ),
+            'featured_image'        => _x( 'FAQ Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'mchat' ),
+            'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'mchat' ),
+            'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'mchat' ),
+            'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'mchat' ),
+            'archives'              => _x( 'FAQ archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'mchat' ),
+            'insert_into_item'      => _x( 'Insert into FAQ', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'mchat' ),
+            'uploaded_to_this_item' => _x( 'Uploaded to this FAQ', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'mchat' ),
+            'filter_items_list'     => _x( 'Filter Mchat FAQ list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'mchat' ),
+            'items_list_navigation' => _x( 'Mchat FAQ list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'mchat' ),
+            'items_list'            => _x( 'Mchat FAQ list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'mchat' ),
+        );
+     
+        $args = array(
+            'labels'             => $labels,
+            'public'             => true,
+            'publicly_queryable' => true,
+            'show_ui'            => true,
+            'show_in_menu'       => true,
+            'query_var'          => true,
+            'rewrite'            => array( 'slug' => 'faq' ),
+            'capability_type'    => 'post',
+            'has_archive'        => true,
+            'hierarchical'       => false,
+            'menu_position'      => null,
+            'menu_icon'          => 'dashicons-sos',
+            'supports'           => array( 'title', 'editor', 'author'),
+        );
+        register_post_type('machat-faq', $args);
     }
 
     /**
