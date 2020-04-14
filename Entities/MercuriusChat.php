@@ -20,7 +20,8 @@ class MercuriusChat{
         add_action('wp_head', array($this, 'mchat_enqueue_gfonts'));
 
         // Render chat front-end
-        add_action('wp_footer', array($this, 'mchat_render_plugin'));
+        // add_action('wp_footer', array($this, 'mchat_render_plugin'));
+        add_action('wp_footer', array($this, 'mchat_front_end_chat'));
     }
 
     /**
@@ -82,24 +83,29 @@ class MercuriusChat{
         $curr_title             = get_option('mchat_title');
         $curr_description       = get_option('mchat_description');
 
-        # OPÇÕES CHAT
-        $curr_option_message        = get_option('mchat_option_message');
-        $curr_option_service_1      = get_option('mchat_option_service_1');
-        $curr_service_1_endpoint    = get_option('mchat_service_1_endpoint');
-        $curr_option_service_2      = get_option('mchat_option_service_2');
-        $curr_service_2_endpoint    = get_option('mchat_service_2_endpoint');
-        $curr_option_service_3      = get_option('mchat_option_service_3');
-        $curr_service_3_endpoint    = get_option('mchat_service_3_endpoint');
-
+        # MENU
+        $curr_title_menu        = get_option('mchat_menu_title');
+        $curr_menu_option_1     = get_option('mchat_menu_option_1');
+        $curr_menu_endpoint_1   = get_option('mchat_menu_endpoint_1');
+        $curr_menu_option_2     = get_option('mchat_menu_option_2');
+        $curr_menu_endpoint_2   = get_option('mchat_menu_endpoint_2');
+        $curr_menu_option_3     = get_option('mchat_menu_option_3');
+        $curr_menu_endpoint_3   = get_option('mchat_menu_endpoint_3');
+        
         # CONTACT
-        $curr_phone_number          = get_option('mchat_phone_number');
         $curr_contact_message       = get_option('mchat_contact_message');
-
+        
         # ANOTHERS SETTINGS
-        $curr_screen_position   = get_option('mchat_screen_position');
-        $curr_custom_icon       = get_option('mchat_custom_icon');
-        $curr_tooltip           = get_option('mchat_tooltip');
-
+        $curr_screen_position       = get_option('mchat_screen_position');
+        $curr_custom_icon           = get_option('mchat_custom_icon');
+        $curr_tooltip               = get_option('mchat_tooltip');
+        $curr_business_hours        = get_option('mchat_business_hours');
+        
+        # PAGES/SCREENS
+        $curr_title_page_services           = get_option('mchat_page_services_title');
+        $curr_page_services_description     = get_option('mchat_page_services_description');
+        $curr_title_page_faq                = get_option('mchat_page_faq_title');
+        $curr_description_page_faq          = get_option('mchat_page_faq_description');
         ?>
 
         <h3>Configurações Gerais</h3>
@@ -116,7 +122,7 @@ class MercuriusChat{
                             <label for="mchat_title"><?php _e('Título do chat', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="text" id="id_mchat_title" name="mchat_title" class="" placeholder="Ex: Nome da empresa" value="<?php echo (!empty($curr_title) ? $curr_title : ''); ?>">
+                            <input type="text" id="id_mchat_title" name="mchat_title" class="" placeholder="" value="<?php echo (!empty($curr_title) ? $curr_title : ''); ?>">
                         </td>
                     </tr>
                     <tr>
@@ -124,90 +130,127 @@ class MercuriusChat{
                             <label for="mchat_description"><?php _e('Descrição rápida', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="text" id="id_mchat_description" name="mchat_description" class="" placeholder="Ex: Bem vindo ao nosso chat de atendimento" value="<?php echo (!empty($curr_description) ? $curr_description : ''); ?>">
+                            <input type="text" id="id_mchat_description" name="mchat_description" class="" placeholder="" value="<?php echo (!empty($curr_description) ? $curr_description : ''); ?>">
                         </td>
                     </tr>
                     <!-- /Header -->
-
+                    
                     <tr>
-                        <th scope="row">
-                            <label for="mchat_option_message"><?php _e('Mensagem inicial do chat:', 'mchat'); ?></label>
-                        </th>
-                        <td>
-                            <input type="text" id="id_mchat_option_message" name="mchat_option_message" class="" placeholder="Ex: O que você precisa?" value="<?php echo (!empty($curr_option_message) ? $curr_option_message : ''); ?>">
-                        </td>
+                        <td><h3>Configurações Menu:</h3></td>
                     </tr>
 
                     <tr>
                         <th scope="row">
-                            <label for="mchat_option_service_1"><?php _e('Opção 1', 'mchat'); ?></label>
+                            <label for="mchat_menu_title"><?php _e('Título do menu rápido:', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="text" id="id_mchat_option_service_1" name="mchat_option_service_1" class="" placeholder="Ex: Ver produtos" value="<?php echo (!empty($curr_option_service_1) ? $curr_option_service_1 : ''); ?>">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <label for="mchat_service_1_endpoint"><?php _e('Endpoint opção 1', 'mchat'); ?></label>
-                        </th>
-                        <td>
-                            <input type="text" id="id_mchat_service_1_endpoint" name="mchat_service_1_endpoint" class="" placeholder="Endpoint da opção 1" value="<?php echo (!empty($curr_service_1_endpoint) ? $curr_service_1_endpoint : ''); ?>">
+                            <input type="text" id="id_mchat_menu_title" name="mchat_menu_title" class="" placeholder="" value="<?php echo (!empty($curr_title_menu) ? $curr_title_menu : ''); ?>">
                         </td>
                     </tr>
 
                     <tr>
                         <th scope="row">
-                            <label for="mchat_option_service_2"><?php _e('Opção 2', 'mchat'); ?></label>
+                            <label for="mchat_menu_option_1"><?php _e('Menu opção 1', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="text" id="id_mchat_option_service_2" name="mchat_option_service_2" class="" placeholder="Ex: Ver produtos" value="<?php echo (!empty($curr_option_service_2) ? $curr_option_service_2 : ''); ?>">
+                            <input type="text" id="id_mchat_menu_option_1" name="mchat_menu_option_1" class="" placeholder="" value="<?php echo (!empty($curr_menu_option_1) ? $curr_menu_option_1 : ''); ?>">
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="mchat_service_1_endpoint"><?php _e('Endpoint opção 2', 'mchat'); ?></label>
+                            <label for="mchat_menu_endpoint_1"><?php _e('Endpoint opção 1', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="text" id="id_mchat_service_2_endpoint" name="mchat_service_2_endpoint" class="" placeholder="Endpoint da opção 2" value="<?php echo (!empty($curr_service_2_endpoint) ? $curr_service_2_endpoint : ''); ?>">
+                            <input type="text" id="id_mchat_menu_endpoint_1" name="mchat_menu_endpoint_1" class="" placeholder="" value="<?php echo (!empty($curr_menu_endpoint_1) ? $curr_menu_endpoint_1 : ''); ?>">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <label for="mchat_menu_option_2"><?php _e('Menu opção 2', 'mchat'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" id="id_mchat_menu_option_2" name="mchat_menu_option_2" class="" placeholder="" value="<?php echo (!empty($curr_menu_option_2) ? $curr_menu_option_2 : ''); ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="mchat_menu_endpoint_2"><?php _e('Endpoint opção 2', 'mchat'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" id="id_mchat_menu_endpoint_2" name="mchat_menu_endpoint_2" class="" placeholder="" value="<?php echo (!empty($curr_service_2_endpoint) ? $curr_service_2_endpoint : ''); ?>">
                         </td>
                     </tr>
                     
                     <tr>
                         <th scope="row">
-                            <label for="mchat_option_service_3"><?php _e('Opção 3', 'mchat'); ?></label>
+                            <label for="mchat_menu_option_3"><?php _e('Menu opção 3', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="text" id="id_mchat_option_service_3" name="mchat_option_service_3" class="" placeholder="Ex: Ver produtos" value="<?php echo (!empty($curr_option_service_3) ? $curr_option_service_3 : ''); ?>">
+                            <input type="text" id="id_mchat_menu_option_3" name="mchat_menu_option_3" class="" placeholder="" value="<?php echo (!empty($curr_menu_option_3) ? $curr_menu_option_3 : ''); ?>">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">
+                            <label for="mchat_menu_endpoint_3"><?php _e('Endpoint opção 3', 'mchat'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" id="id_mchat_menu_endpoint_3" name="mchat_menu_endpoint_3" class="" placeholder="" value="<?php echo (!empty($curr_service_3_endpoint) ? $curr_service_3_endpoint : ''); ?>">
+                        </td>
+                    </tr>
+                    <!-- /Menu -->
+
+                    <tr>
+                        <td><h3>Configurações Telas:</h3></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="mchat_page_services_title"><?php _e('Título página de serviços', 'mchat'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" id="id_mchat_page_services_title" name="mchat_page_services_title" class="" placeholder="" value="<?php echo (!empty($curr_title_page_services) ? $curr_title_page_services : ''); ?>">
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="mchat_service_3_endpoint"><?php _e('Endpoint opção 3', 'mchat'); ?></label>
+                            <label for="mchat_page_services_description"><?php _e('Descrição página de serviços', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="text" id="id_mchat_service_3_endpoint" name="mchat_service_3_endpoint" class="" placeholder="Endpoint da opção 3" value="<?php echo (!empty($curr_service_3_endpoint) ? $curr_service_3_endpoint : ''); ?>">
+                            <input type="text" id="id_mchat_page_services_description" name="mchat_page_services_description" class="" placeholder="" value="<?php echo (!empty($curr_title_page_services) ? $curr_title_page_services : ''); ?>">
                         </td>
                     </tr>
-                    <!-- /Options -->
 
                     <tr>
                         <th scope="row">
-                            <label for="mchat_phone_number"><?php _e('Número WhatsApp', 'mchat'); ?></label>
+                            <label for="mchat_page_faq_title"><?php _e('Título página FAQ', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="phone" id="id_mchat_phone_number" name="mchat_phone_number" class="" placeholder="Ex: 00 00000-0000" value="<?php echo (!empty($curr_phone_number) ? $curr_phone_number : ''); ?>">
+                            <input type="text" id="id_mchat_page_faq_title" name="mchat_page_faq_title" class="" placeholder="" value="<?php echo (!empty($curr_title_page_faq) ? $curr_title_page_faq : ''); ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="mchat_page_faq_description"><?php _e('Descrição página FAQ', 'mchat'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" id="id_mchat_page_faq_description" name="mchat_page_faq_description" class="" placeholder="" value="<?php echo (!empty($curr_description_page_faq) ? $curr_description_page_faq : ''); ?>">
                         </td>
                     </tr>
 
+
+
+                    <tr>
+                        <td><h3>Configurações gerais:</h3></td>
+                    </tr>
                     <tr>
                         <th scope="row">
                             <label for="mchat_contact_message"><?php _e('Mensagem de contato', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="text" id="id_mchat_contact_message" name="mchat_contact_message" class="" placeholder="Ex: Contato via site" value="<?php echo (!empty($curr_contact_message) ? $curr_contact_message : ''); ?>">
+                            <input type="text" id="id_mchat_contact_message" name="mchat_contact_message" class="" placeholder="" value="<?php echo (!empty($curr_contact_message) ? $curr_contact_message : ''); ?>">
                         </td>
                     </tr>
-                    <!-- /Contact settings -->
 
                     <tr>
                         <th scope="row">
@@ -239,9 +282,19 @@ class MercuriusChat{
                             <label for="mchat_tooltip"><?php _e('Dica do chat', 'mchat'); ?></label>
                         </th>
                         <td>
-                            <input type="text" id="mchat_tooltip" name="mchat_tooltip" class="" placeholder="Precisa de ajuda?" value="<?php echo (!empty($curr_tooltip) ? $curr_tooltip : ''); ?>">
+                            <input type="text" id="mchat_tooltip" name="mchat_tooltip" class="" placeholder="" value="<?php echo (!empty($curr_tooltip) ? $curr_tooltip : ''); ?>">
                         </td>
                     </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <label for="mchat_business_hours"><?php _e('Horário de funcionamento', 'mchat'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" id="id_mchat_business_hours" name="mchat_business_hours" class="" placeholder="" value="<?php echo (!empty($curr_business_hours) ? $curr_business_hours : ''); ?>">
+                        </td>
+                    </tr>
+                    <!-- / General settings -->
                 </tbody>  
             </table>
             <?php submit_button(); ?>
@@ -336,6 +389,139 @@ class MercuriusChat{
         <?php
     }
 
+    /**
+     * Front-end plugin
+     */
+    public function mchat_front_end_chat()
+    {
+        $header = '<header class="mchatHeader">
+                        <div class="mchatHeader__">
+                            <span class=""><!-- Botão voltar --></span>
+                        </div>
+                        <h1 class="mchatHeader__title">Bem vindo</h1>
+                        <p class="mchatHeader__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </header>';
+
+        $body = '<section class="mchatBody">
+                    <div class="mchatBody__content">
+                        <h3 class="mchatBody__title">Menu rápido:</h3>
+                        <ul class="mchatNav">
+                            <li class="mchatNav__item"><a href="#" class="mchatNav__link"><i class="icon__arrowRight icon--16px"></i>Compra rápida</a></li>
+                            <li class="mchatNav__item"><a href="#" class="mchatNav__link"><i class="icon__arrowRight icon--16px"></i>Perguntas Frequentes(FAQ)</a></li>
+                        </ul>
+                    </div>
+                    <footer class="mchatBody__footer">
+                        <span class="mchatBody__label">Horário de atendimento: <b>09:00 AM - 18:00 PM</b></span>
+                    </footer>
+                </section>';
+    
+
+        $cardPerson = '<div class="mchatCard">
+                            <h3 class="mchatCard__title">Atendimento Online</h3>
+                            <div class="mchatPerson">
+                                <div class="mchatPerson__thumbContainer mchatPerson__thumbContainer--48px">
+                                    <img src="" alt="" class="mchatPerson__thumb mchatPerson__thumb--48px">
+                                    <span class="mchatPerson__status mchatPerson__status--online"></span>
+                                </div>
+                                <div class="mchatPerson__infoContainer">
+                                    <span class="mchatPerson__name">Janice M. Gleen</span>
+                                    <span class="mchatPerson__role">Suporte</span>
+                                </div>
+                            </div>
+                            <button type="button" class="btnPrimary"><span class="btnPrimary__text">iniciar conversa</span><i class="icon__whatsapp icon--16px"></i></button>
+                        </div>';
+        
+        
+
+        // Templates parts
+        $cardProduct = '<div class="mchatCardProduct">
+                        <div class="mchatCardProduct__container">
+                            <!-- Thumb -->
+                            <div class="mchatCardProduct__wrapperThumb">
+                                <img src="" alt="" class="mchatCardProduct__thumb">
+                            </div>
+                    
+                            <!-- Title -->
+                            <div class="mchatCardProduct__wrapperTitle">
+                                <h3 class="mchatCardProduct__title">Monitor Gamer Acer Kg241q 23.6 Full Hd 144hz 1ms</h3>
+                                <div class="mchatRating">
+                                    <i class="mchatRating__star"></i>
+                                    <i class="mchatRating__star"></i>
+                                    <i class="mchatRating__star"></i>
+                                    <i class="mchatRating__star"></i>
+                                    <i class="mchatRating__halfStar"></i>
+                                </div>
+                                <!-- Avaliação -->
+                            </div>
+                        </div>
+                        <span class="mchatCardProduct__separator"></span>
+                        <div class="mchatCardProduct__container">
+                            <!-- Descrição -->
+                            <div class="mchatCardProduct__wrapperDesc">
+                                <p class="mchatCardProduct__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                            </div>
+                    
+                            <div class="mchatCardProduct__boxPrice">
+                                <!-- Preço -->
+                                <h3 name="product-price" class="mchatCardProduct__price">R$1.349</h3>
+                                <!-- Label preço -->
+                                <label for="product-price" class="mchatCardProduct__label">Até 3x no cartão</label>
+                            </div>
+                        </div>
+                    </div>';
+
+        $detailsProduct = '<div class="mchatCardDetails">
+                            <div class="mchatCardDetails__container">
+                                <ul class="mchatCardDetails__list">
+                                    <li class="mchatCardDetails__item">
+                                        <img src="" alt="" class="mchatCardDetails__thumb">
+                                    </li>
+                                    <li class="mchatCardDetails__item">
+                                        <img src="" alt="" class="mchatCardDetails__thumb">
+                                    </li>
+                                    <li class="mchatCardDetails__item">
+                                        <img src="" alt="" class="mchatCardDetails__thumb">
+                                    </li>
+                                </ul>
+                            </div>
+                        
+                            <div class="mchatCardDetails__container">
+                                <p class="mchatCardDetails__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, veritatis! Dolorum iste, tempora eligendi ad ratione eveniet ut voluptatibus</p>
+                            </div>
+                        
+                            <button type="button" class="btnPrimary btnPrimary--ghost">Página do produto <i class="icon__whatsapp icon--16px"></i></button>
+                            <button type="button" class="btnPrimary">Adicionar ao carrinho <i class="icon__whatsapp icon--16px"></i></button>
+                        </div>';
+
+
+
+        $faqPost = '<div class="mchatCardFaq mchatCardFaq--expand">
+                    <h3 class="mchatCardFaq__title">Quais as opções de pagamento? <span class="icon__carretDown icon--16px"></span></h3>
+                    <div class="mchatCardFaq__content mchatCardFaq__content--hide">
+                        <p class="mchatCardFaq__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus aperiam quod cumque? Corrupti laboriosam neque eaque perferendis. Voluptatem at minus.</p>
+                    </div>
+                </div>';
+        // End
+
+        $bodyEmpty = '<section class="mchatBody">
+                    <div class="mchatBody__containerResults">
+                        <div id="page-products" class="">
+                        '. $cardProduct .'
+                        '. $cardProduct .'
+                        </div>
+                        <div id="page-details-product" class="" style="display: none;">
+                        '. $detailsProduct .'
+                        </div>
+                        <div id="page-faq" class="" style="display: none;">
+                        '. $faqPost .'
+                        </div>
+                    </div>
+            </section>';
+        
+        include plugin_dir_path(__FILE__) . '../templates/front-end/chat.php';
+            
+    }
+    
 
     /**
      * Instanciando a classe
