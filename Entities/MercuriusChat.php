@@ -46,11 +46,13 @@ class MercuriusChat{
         // Registro de arquivos JS
         wp_register_script('jquery-3.4.1', plugins_url('../assets/js/jquery-3.4.1.min.js', __FILE__), array(), false);
         wp_register_script('mchat-js', plugins_url('../assets/js/mchat-script.js', __FILE__), array('jquery-3.4.1'), false);
-        
+        wp_register_script('font-awesome-5.13', plugins_url('../assets/js/all.min.js', __FILE__), array(), false );
+
         // Enfileiramento de scripts e css
         wp_enqueue_style('mchat-css');
         wp_enqueue_script('jquery-3.4.1');
         wp_enqueue_script('mchat-js');
+        wp_enqueue_script('font-awesome-5.13');
     }
 
     public function mchat_enqueue_gfonts()
