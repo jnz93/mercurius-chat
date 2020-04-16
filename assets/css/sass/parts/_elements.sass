@@ -11,7 +11,8 @@
     justify-content: flex-end
 
     position: absolute
-    bottom: 32px
+    bottom: 96px
+    display: none
     @include mchat-shadow
     
     
@@ -38,23 +39,27 @@
             
         @include respond-below('sm')
             left: 16px
+    
+    &--show
+        display: block
 
 .mchatTooltip
 
     &__text
         font-family: $family
         color: $white0
-        text-transform: uppercase
+        text-transform: capitalize
         margin: 0
         padding: 0
 
         border-radius: 4px
-        border: 1px solid $secondary
+        border: 1px solid $primary
 
-        background-color: $secondary
+        background-color: $primary
         box-shadow: $defaultShadow
         width: max-content
         position: absolute
+        right: 0
 
         @include respond-above('sm')
             font-size: $fs-16
@@ -136,3 +141,16 @@
         font-size: $fs-12
         font-weight: $fw_normal
         color: $dark-1
+
+// Container buttons
+.mchatContainerButtons
+    position: absolute
+    bottom: 16px
+
+    &--right
+        right: 32px
+        left: auto
+
+    &--left
+        right: auto
+        left: 32px

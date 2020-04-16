@@ -1,10 +1,4 @@
 'use-strict'
-// When document load
-jQuery(document).ready(function()
-{
-    // console.log("Olá mundo");
-})
-
 /**
  * Esconder e mostrar o chat
  * 
@@ -19,7 +13,7 @@ function openAndCloseChat(el)
     hideTooltip(el);
 
     // Mostrar/Esconder chat
-    jQuery('#mchatMessenger').toggleClass('mchatMessenger--enabled');
+    jQuery('#page-home').toggleClass('mchatContainer--show');
 }
 
 /**
@@ -68,3 +62,37 @@ function hideTooltip(el)
 
     toolTip.hide();
 }
+
+
+/**
+ * VERSÃO 1.0.0-beta
+ */
+// When document load
+jQuery(document).ready(function()
+{
+    /**
+     * Ações do menu rápido
+     */
+    jQuery(".mchatNav__item > a").click(function(e)
+    {
+        e.preventDefault();
+
+        var href = jQuery(this).attr('href');
+        var page = jQuery(href);
+        page.show();
+    });
+
+    /**
+     * Ações para voltar página do chat
+     */
+    jQuery(".btnBack").click(function()
+    {
+        var currScreen = jQuery(this).parent().parent().parent();
+
+        if (currScreen.attr('id') == "page-services" || currScreen.attr('id') == "page-faq")
+        {
+            currScreen.hide();
+            jQuery('#page-home').show();
+        }
+    });
+})

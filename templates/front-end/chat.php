@@ -198,6 +198,18 @@ function mchat_get_faq_posts()
 
 ?>
 
+<div class="mchatContainerButtons mchatContainerButtons--right">
+    <span class="mchatTooltip mchatTooltip__text"><?php echo $chat_tooltip ?></span>
+
+    <!-- Wrapper buttons open/close -->
+    <span class="mchatBtn mchatBtn__openAndClose" onclick="openAndCloseChat(jQuery(this))">
+        <i class="mchatIcon mchatIcon__messenger mchatIcon--enabled"></i>
+        <i class="mchatIcon mchatIcon__close mchatIcon--disabled"></i>
+    </span>
+</div>
+
+
+
 <!-- Tela inicial -->
 <div id="page-home" class="mchatContainer mchatContainer--right">
     
@@ -223,7 +235,7 @@ function mchat_get_faq_posts()
 </div>
 
 <!-- Tela serviços -->
-<div id="page-services" class="mchatContainer mchatContainer--right" style="display: none">
+<div id="page-services" class="mchatContainer mchatContainer--right">
     <?php
     mchat_header(true, $page_services_title, $page_services_desc);
     ?>
@@ -244,7 +256,7 @@ function mchat_get_faq_posts()
 </div>
 
 <!-- Tela FAQ -->
-<div id="page-faq" class="mchatContainer mchatContainer--right" style="display: none">
+<div id="page-faq" class="mchatContainer mchatContainer--right">
     
     <?php 
     // mchat_header(false, $title, $description);

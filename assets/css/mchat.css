@@ -139,7 +139,8 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   position: absolute;
-  bottom: 32px;
+  bottom: 96px;
+  display: none;
   box-shadow: 0px 3px 6px #E5E9ED; }
   @media (min-width: 768px) {
     .mchatContainer {
@@ -163,19 +164,22 @@
     @media (max-width: 767px) {
       .mchatContainer--left {
         left: 16px; } }
+  .mchatContainer--show {
+    display: block; }
 
 .mchatTooltip__text {
   font-family: "IBM Plex Sans", sans-serif;
   color: #FFFFFF;
-  text-transform: uppercase;
+  text-transform: capitalize;
   margin: 0;
   padding: 0;
   border-radius: 4px;
-  border: 1px solid #FF5722;
-  background-color: #FF5722;
+  border: 1px solid #1E272E;
+  background-color: #1E272E;
   box-shadow: 0px 3px 6px #E5E9ED;
   width: max-content;
-  position: absolute; }
+  position: absolute;
+  right: 0; }
   @media (min-width: 768px) {
     .mchatTooltip__text {
       font-size: 16px;
@@ -261,6 +265,16 @@
     font-weight: 400;
     color: #212121; }
 
+.mchatContainerButtons {
+  position: absolute;
+  bottom: 16px; }
+  .mchatContainerButtons--right {
+    right: 32px;
+    left: auto; }
+  .mchatContainerButtons--left {
+    right: auto;
+    left: 32px; }
+
 /*
     .block
     .block__element
@@ -286,7 +300,6 @@
   list-style: none;
   display: flex;
   flex-flow: row;
-  flex-wrap: wrap;
   align-content: flex-start;
   justify-content: flex-start;
   padding: 32px; }
@@ -552,7 +565,9 @@
   background: none;
   outline: none;
   margin: 0 !important;
-  padding: 0 !important; }
+  padding: 0 !important;
+  cursor: pointer;
+  display: inline-block; }
   .mchatBtn:hover, .mchatBtn:focus, .mchatBtn:active, .mchatBtn:visited {
     background-color: inherit; }
   .mchatBtn__send {
@@ -562,7 +577,7 @@
     height: 48px;
     overflow: hidden; }
   .mchatBtn__openAndClose {
-    background-color: #FF5722;
+    background-color: #1E272E;
     border-radius: 100%; }
     @media (min-width: 768px) {
       .mchatBtn__openAndClose {
