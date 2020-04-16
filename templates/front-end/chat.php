@@ -59,7 +59,7 @@ function mchat_header($show_button = null, $title, $description)
     <header class="mchatHeader">
         <div class="mchatHeader__">
             <?php if ($show_button) : ?>
-                <span class=""><!-- Botão voltar --></span>
+                <i class="fas fa-arrow-circle-left"></i>
                 <span>Voltar</span>
             <?php endif; ?>
         </div>
@@ -85,8 +85,8 @@ function mchat_menu()
     ?>
     <h3 class="mchatBody__title"><?php echo (!empty($menu_title) ? $menu_title : 'Menu rápido:'); ?></h3>
     <ul class="mchatNav">
-        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_1 ?>" class="mchatNav__link"><i class="icon__arrowRight icon--16px"></i><?php echo $menu_option_1 ?></a></li>
-        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_2 ?>" class="mchatNav__link"><i class="icon__arrowRight icon--16px"></i><?php echo $menu_option_2 ?></a></li>
+        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_1 ?>" class="mchatNav__link"><i class="fas fa-angle-double-right"></i><?php echo $menu_option_1 ?></a></li>
+        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_2 ?>" class="mchatNav__link"><i class="fas fa-angle-double-right"></i><?php echo $menu_option_2 ?></a></li>
     </ul>
     <?php
 }
@@ -179,7 +179,7 @@ function mchat_get_faq_posts()
             $content    = get_the_content();
 
             echo '<div class="mchatCardFaq mchatCardFaq--expand">
-                    <h3 class="mchatCardFaq__title">'. $title .' <span class="icon__carretDown icon--16px"></span></h3>
+                    <h3 class="mchatCardFaq__title">'. $title .' <i class="fas fa-caret-down"></i></h3>
                     <div class="mchatCardFaq__content mchatCardFaq__content--hide">
                         <p class="mchatCardFaq__text">'.  $content .'</p>
                     </div>
