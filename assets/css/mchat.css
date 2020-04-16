@@ -15,72 +15,6 @@
     VARS, MIXINS and PATTERNS*/
 /*------------------------------------*\
     MEDIA QUERIES */
-.mchatBtn {
-  border: 0;
-  border-radius: 0;
-  background: none;
-  outline: none;
-  margin: 0 !important;
-  padding: 0 !important; }
-  .mchatBtn:hover, .mchatBtn:focus, .mchatBtn:active, .mchatBtn:visited {
-    background-color: inherit; }
-  .mchatBtn__send {
-    background: #E5E9ED;
-    border: none;
-    width: 48px;
-    height: 48px;
-    overflow: hidden; }
-  .mchatBtn__openAndClose {
-    background-color: #FF5722;
-    border-radius: 100%; }
-    @media (min-width: 768px) {
-      .mchatBtn__openAndClose {
-        width: 64px;
-        height: 64px; } }
-    @media (max-width: 767px) {
-      .mchatBtn__openAndClose {
-        width: 48px;
-        height: 48px; } }
-    .mchatBtn__openAndClose:hover {
-      background-color: #FF5722;
-      box-shadow: 0px 3px 6px #E5E9ED; }
-
-.mchatIcon {
-  width: 100%;
-  height: 100%;
-  display: inline-block; }
-  .mchatIcon__send {
-    background-image: url(../icons/icon_send.svg);
-    color: #FF5722;
-    fill: #FF5722;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 32px; }
-  .mchatIcon__messenger, .mchatIcon__close {
-    background-image: url("../icons/icon_messenger.svg");
-    color: #FFFFFF;
-    fill: #FFFFFF;
-    background-repeat: no-repeat;
-    background-position: center; }
-    @media (min-width: 768px) {
-      .mchatIcon__messenger, .mchatIcon__close {
-        background-size: 40px; } }
-    @media (max-width: 767px) {
-      .mchatIcon__messenger, .mchatIcon__close {
-        background-size: 30px; } }
-  .mchatIcon__close {
-    background-image: url("../icons/icon_close.svg"); }
-    @media (min-width: 768px) {
-      .mchatIcon__close {
-        background-size: 56px; } }
-    @media (max-width: 767px) {
-      .mchatIcon__close {
-        background-size: 40px; } }
-  .mchatIcon--disabled {
-    display: none; }
-  .mchatIcon--enabled {
-    display: inline-block; }
-
 /*
     .chat
     .chat__element
@@ -615,6 +549,72 @@
     VARS, MIXINS and PATTERNS*/
 /*------------------------------------*\
     MEDIA QUERIES */
+.mchatBtn {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  outline: none;
+  margin: 0 !important;
+  padding: 0 !important; }
+  .mchatBtn:hover, .mchatBtn:focus, .mchatBtn:active, .mchatBtn:visited {
+    background-color: inherit; }
+  .mchatBtn__send {
+    background: #E5E9ED;
+    border: none;
+    width: 48px;
+    height: 48px;
+    overflow: hidden; }
+  .mchatBtn__openAndClose {
+    background-color: #FF5722;
+    border-radius: 100%; }
+    @media (min-width: 768px) {
+      .mchatBtn__openAndClose {
+        width: 64px;
+        height: 64px; } }
+    @media (max-width: 767px) {
+      .mchatBtn__openAndClose {
+        width: 48px;
+        height: 48px; } }
+    .mchatBtn__openAndClose:hover {
+      background-color: #FF5722;
+      box-shadow: 0px 3px 6px #E5E9ED; }
+
+.mchatIcon {
+  width: 100%;
+  height: 100%;
+  display: inline-block; }
+  .mchatIcon__send {
+    background-image: url(../icons/icon_send.svg);
+    color: #FF5722;
+    fill: #FF5722;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 32px; }
+  .mchatIcon__messenger, .mchatIcon__close {
+    background-image: url("../icons/icon_messenger.svg");
+    color: #FFFFFF;
+    fill: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: center; }
+    @media (min-width: 768px) {
+      .mchatIcon__messenger, .mchatIcon__close {
+        background-size: 40px; } }
+    @media (max-width: 767px) {
+      .mchatIcon__messenger, .mchatIcon__close {
+        background-size: 30px; } }
+  .mchatIcon__close {
+    background-image: url("../icons/icon_close.svg"); }
+    @media (min-width: 768px) {
+      .mchatIcon__close {
+        background-size: 56px; } }
+    @media (max-width: 767px) {
+      .mchatIcon__close {
+        background-size: 40px; } }
+  .mchatIcon--disabled {
+    display: none; }
+  .mchatIcon--enabled {
+    display: inline-block; }
+
 .btnPrimary {
   background: none !important;
   border: none !important;

@@ -1,6 +1,92 @@
 @import "_styleguide.sass"
 @import "_settings.sass"
 
+// OLD VERSION
+.mchatBtn
+    border: 0
+    border-radius: 0
+    background: none
+    outline: none
+    margin: 0 !important
+    padding: 0 !important
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited
+        background-color: inherit
+
+    &__send
+        background: $light-1
+        border: none
+        width: 48px
+        height: 48px
+
+        overflow: hidden
+
+    &__openAndClose
+        background-color: $secondary
+        border-radius: 100%
+
+        @include respond-above('sm')
+            width: $widthBtnDesktop
+            height: $heightBtnDesktop
+
+        @include respond-below('sm')
+            width: $widthBtnMobile
+            height: $heightBtnMobile
+        
+        &:hover
+            background-color: $secondary
+            box-shadow: $defaultShadow
+
+
+.mchatIcon
+    width: 100%
+    height: 100%
+    display: inline-block
+
+    &__send
+        background-image: $srcIconSend
+        color: $secondary
+        fill: $secondary
+        background-repeat: no-repeat
+        background-position: center
+        background-size: 32px
+
+    &__messenger
+        background-image: $srcIconMessenger
+        color: $white0
+        fill: $white0
+        background-repeat: no-repeat
+        background-position: center
+
+        @include respond-above('sm')
+            background-size: 40px
+
+        @include respond-below('sm')
+            background-size: 30px
+        
+
+    &__close
+        @extend .mchatIcon__messenger
+        background-image: $srcIconClose
+        
+        @include respond-above('sm')
+            background-size: 56px
+
+        @include respond-below('sm')
+            background-size: 40px
+
+
+    &--disabled
+        display: none
+
+    &--enabled
+        display: inline-block
+
+
+// New version
 .btnPrimary
     @include reset-button
     background-color: $primary !important
