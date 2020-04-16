@@ -11,7 +11,14 @@
     width: 100%
 
     @include reset-element
-    padding: 16px 32px
+    @include flex-start-items
+    padding: 32px
+
+    &__content
+        margin-right: 16px
+
+        &:last-child
+            margin: 0
 
     &__title
         font-size: $fs-21

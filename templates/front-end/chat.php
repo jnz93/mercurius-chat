@@ -57,14 +57,18 @@ function mchat_header($show_button = null, $title, $description)
 {
     ?>
     <header class="mchatHeader">
-        <div class="mchatHeader__">
-            <?php if ($show_button) : ?>
-                <i class="fas fa-arrow-circle-left"></i>
-                <span>Voltar</span>
-            <?php endif; ?>
+        <?php if ($show_button) : ?>
+            <div id="" class="mchatHeader__content">
+                <span class="btnSimple btnBack">
+                    <i class="btnSimple btnSimple__icon btnSimple__icon--24px fas fa-arrow-circle-left"></i>
+                    <span class="btnSimple__label">Voltar</span>
+                </span>
+            </div>
+        <?php endif; ?>
+        <div class="mchatHeader__content">
+            <h1 class="mchatHeader__title"><?php echo $title; ?></h1>
+            <p class="mchatHeader__description"><?php echo $description; ?></p>
         </div>
-        <h1 class="mchatHeader__title"><?php echo $title; ?></h1>
-        <p class="mchatHeader__description"><?php echo $description; ?></p>
     </header>
     <?php 
 }
