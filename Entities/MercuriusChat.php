@@ -106,7 +106,7 @@ class MercuriusChat{
             'menu_icon'          => 'dashicons-sos',
             'supports'           => array( 'title', 'editor', 'author'),
         );
-        register_post_type('machat-faq', $args);
+        register_post_type('mchat-faq', $args);
     }
 
     /**
