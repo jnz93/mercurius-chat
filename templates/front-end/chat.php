@@ -42,7 +42,7 @@ function mchat_attendants_card()
                             <span class="mchatPerson__role">'. $user_position .'</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/55'. $user_phone_number .'" target="_blank" class="btnPrimary"><span class="btnPrimary__text">iniciar conversa</span><i class="icon__whatsapp icon--16px"></i></a>';
+                    <a href="https://wa.me/55'. $user_phone_number .'" target="_blank" class="btnPrimary"><span class="btnPrimary__text">iniciar conversa</span><i class="fab fa-whatsapp"></i></a>';
             endforeach;
         echo '</div>';
     endif;
@@ -195,7 +195,7 @@ function mchat_get_faq_posts()
 ?>
 
 <!-- Tela inicial -->
-<div class="mchatContainer mchatContainer--right">
+<div id="page-home" class="mchatContainer mchatContainer--right">
     
     <?php 
     mchat_header(false, $title, $description);
@@ -219,7 +219,7 @@ function mchat_get_faq_posts()
 </div>
 
 <!-- Tela serviços -->
-<div class="mchatContainer mchatContainer--right" style="display: none">
+<div id="page-services" class="mchatContainer mchatContainer--right" style="display: none">
     <?php
     mchat_header(true, $page_services_title, $page_services_desc);
     ?>
@@ -240,7 +240,7 @@ function mchat_get_faq_posts()
 </div>
 
 <!-- Tela FAQ -->
-<div class="mchatContainer mchatContainer--right" style="display: none">
+<div id="page-faq" class="mchatContainer mchatContainer--right" style="display: none">
     
     <?php 
     // mchat_header(false, $title, $description);
