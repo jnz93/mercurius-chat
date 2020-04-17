@@ -26,15 +26,16 @@ function mchat_attendants_card()
         echo '<div class="mchatCard">
             <h3 class="mchatCard__title">Atendimento Online</h3>';
             foreach($attendants as $user) :
-                $user_id        = $user->ID;
-                $user_name      = $user->display_name;
-                $user_position  = $user->roles[0];
-                $user_phone_number = get_user_option('mchat_phone_user', $user_id);
-                $user_phone_number = str_replace(' ', '', $user_phone_number);
+                $user_id            = $user->ID;
+                $user_name          = $user->display_name;
+                $user_position      = $user->roles[0];
+                $user_phone_number  = get_user_option('mchat_phone_user', $user_id);
+                $user_phone_number  = str_replace(' ', '', $user_phone_number);
+                $avatar_url         = MercuriusHelpers::mchat_sanitize_url_avatar($user_id);
 
                 echo '<div class="mchatPerson">
                         <div class="mchatPerson__thumbContainer mchatPerson__thumbContainer--48px">
-                            <img src="" alt="" class="mchatPerson__thumb mchatPerson__thumb--48px">
+                            <img src="'. $avatar_url .'" alt="'. $user_name .'" class="mchatPerson__thumb mchatPerson__thumb--48px">
                             <span class="mchatPerson__status mchatPerson__status--online"></span>
                         </div>
                         <div class="mchatPerson__infoContainer">
