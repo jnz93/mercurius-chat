@@ -281,6 +281,15 @@
     right: auto;
     left: 32px; }
 
+.mchatRating {
+  width: auto;
+  margin: 4px 0; }
+  .mchatRating__icon {
+    color: #ffd32a;
+    margin: 0 1px; }
+    .mchatRating__icon--s16 {
+      font-size: 16px; }
+
 /*
     .block
     .block__element
@@ -372,10 +381,17 @@
     background-color: #FFFFFF;
     width: calc(100% - 32px);
     height: 390px;
-    box-shadow: 0px 3px 6px #E5E9ED;
     padding: 16px;
+    border-radius: 4px;
     position: absolute;
-    left: 16px; }
+    left: 16px;
+    overflow: auto; }
+    .mchatBody__containerResults::-webkit-scrollbar {
+      width: 5px; }
+    .mchatBody__containerResults::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
+    .mchatBody__containerResults::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
 
 .mchatBody__footer {
   margin: 0;
@@ -444,17 +460,22 @@
     width: calc(100% - 72px);
     height: auto; }
   .mchatCardProduct__wrapperDesc {
-    width: 65%;
+    width: 60%;
     height: auto;
     margin-right: 8px; }
   .mchatCardProduct__boxPrice {
-    width: calc(35% - 8px);
+    width: calc(40% - 8px);
     height: auto; }
   .mchatCardProduct__separator {
     background-color: #E5E9ED;
     width: 100%;
     height: 1px;
     margin: 8px 0px; }
+  .mchatCardProduct__link {
+    text-decoration: none; }
+    .mchatCardProduct__link:hover {
+      text-decoration: underline;
+      color: #757575; }
   .mchatCardProduct__title {
     margin: 0;
     padding: 0;
@@ -472,7 +493,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    font-size: 16px;
+    font-size: 21px;
     font-weight: 700;
     line-height: 24px;
     color: #212121; }

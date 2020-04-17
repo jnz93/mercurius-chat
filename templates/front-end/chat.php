@@ -110,7 +110,7 @@ function mchat_get_wc_products()
     // echo '</pre>';
 
     if ($products):
-        echo '<p class="">Encontramos '. count($products) .' produtos:</p>';
+        echo '<p class="mchatBody__label">Encontramos <b>'. count($products) .'</b> produtos:</p>';
         foreach($products as $product):
             $product_id         = $product->id;
             $product_title      = $product->name;
@@ -130,15 +130,15 @@ function mchat_get_wc_products()
                 
                         <!-- Title -->
                         <div class="mchatCardProduct__wrapperTitle">
-                            <a href="#open-product-'. $product_id .'" class="">
+                            <a href="#open-product-'. $product_id .'" class="mchatCardProduct__link">
                                 <h3 class="mchatCardProduct__title">'. wp_trim_words($product_title, 8, '...') .'</h3>
                             </a> 
                             <div class="mchatRating">
-                                <i class="mchatRating__star"></i>
-                                <i class="mchatRating__star"></i>
-                                <i class="mchatRating__star"></i>
-                                <i class="mchatRating__star"></i>
-                                <i class="mchatRating__halfStar"></i>
+                                <i class="mchatRating__icon mchatRating__icon--s16 fas fa-star"></i>
+                                <i class="mchatRating__icon mchatRating__icon--s16 fas fa-star"></i>
+                                <i class="mchatRating__icon mchatRating__icon--s16 fas fa-star"></i>
+                                <i class="mchatRating__icon mchatRating__icon--s16 fas fa-star"></i>
+                                <i class="mchatRating__icon mchatRating__icon--s16 fas fa-star-half"></i>
                             </div>
                             <!-- Avaliação -->
                         </div>
@@ -152,7 +152,7 @@ function mchat_get_wc_products()
                 
                         <div class="mchatCardProduct__boxPrice">
                             <!-- Preço -->
-                            <h3 name="product-price" class="mchatCardProduct__price">'. $regular_price .'</h3>
+                            <h3 name="product-price" class="mchatCardProduct__price">R$'. $regular_price .'</h3>
                             <!-- Label preço -->
                             <label for="product-price" class="mchatCardProduct__label">Até 3x no cartão</label>
                         </div>
