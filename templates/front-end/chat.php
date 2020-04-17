@@ -182,8 +182,8 @@ function mchat_get_faq_posts()
             $title      = get_the_title($faq_id);
             $content    = get_the_content();
 
-            echo '<div class="mchatCardFaq mchatCardFaq--expand">
-                    <h3 class="mchatCardFaq__title">'. $title .' <i class="fas fa-caret-down"></i></h3>
+            echo '<div class="mchatCardFaq">
+                    <h3 class="mchatCardFaq__title">'. $title .' <i class="mchatCardFaq__icon mchatCardFaq__icon--s21 fas fa-caret-down"></i></h3>
                     <div class="mchatCardFaq__content mchatCardFaq__content--hide">
                         <p class="mchatCardFaq__text">'.  $content .'</p>
                     </div>
