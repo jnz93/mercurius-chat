@@ -239,6 +239,16 @@
     .mchatPerson__thumbContainer--48px {
       width: 48px;
       height: 48px; }
+    .mchatPerson__thumbContainer--64px {
+      width: 64px;
+      height: 64px; }
+  .mchatPerson__thumb {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%; }
   .mchatPerson__infoContainer {
     display: flex;
     flex-wrap: wrap;

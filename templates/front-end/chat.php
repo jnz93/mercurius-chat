@@ -34,8 +34,8 @@ function mchat_attendants_card()
                 $avatar_url         = MercuriusHelpers::mchat_sanitize_url_avatar($user_id);
 
                 echo '<div class="mchatPerson">
-                        <div class="mchatPerson__thumbContainer mchatPerson__thumbContainer--48px">
-                            <img src="'. $avatar_url .'" alt="'. $user_name .'" class="mchatPerson__thumb mchatPerson__thumb--48px">
+                        <div class="mchatPerson__thumbContainer mchatPerson__thumbContainer--64px">
+                            <img src="'. $avatar_url .'" alt="'. $user_name .'" class="mchatPerson__thumb">
                             <span class="mchatPerson__status mchatPerson__status--online"></span>
                         </div>
                         <div class="mchatPerson__infoContainer">
