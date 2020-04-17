@@ -4,6 +4,7 @@
   */
 include 'MercuriusSettings.php';
 include 'MercuriusUsersManagement.php';
+include 'MercuriusHelpers.php';
 class MercuriusChat{
 
     protected static $instance;
