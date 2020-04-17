@@ -88,7 +88,13 @@
         @include reset-link
         color: $dark-1
         font-weight: $fw_bold
-        
+    
+    &__icon
+        color: $primary
+        margin-right: 4px
+
+        &--s21
+            font-size: $fs-21  
 // Person/Attendant
 .mchatPerson
     @include reset-element
@@ -139,7 +145,8 @@
     &__role
         @include reset-element
         font-size: $fs-12
-        font-weight: $fw_normal
+        font-weight: $fw_bold
+        text-transform: capitalize
         color: $dark-1
 
 // Container buttons

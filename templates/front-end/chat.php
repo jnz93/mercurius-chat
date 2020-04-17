@@ -42,7 +42,7 @@ function mchat_attendants_card()
                             <span class="mchatPerson__role">'. $user_position .'</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/55'. $user_phone_number .'" target="_blank" class="btnPrimary"><span class="btnPrimary__text">iniciar conversa</span><i class="fab fa-whatsapp"></i></a>';
+                    <a href="https://wa.me/55'. $user_phone_number .'" target="_blank" class="btnPrimary"><span class="btnPrimary__text">iniciar conversa</span><i class="btnPrimary__icon btnPrimary__icon--s21 fab fa-whatsapp"></i></a>';
             endforeach;
         echo '</div>';
     endif;
@@ -89,8 +89,8 @@ function mchat_menu()
     ?>
     <h3 class="mchatBody__title"><?php echo (!empty($menu_title) ? $menu_title : 'Menu rápido:'); ?></h3>
     <ul class="mchatNav">
-        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_1 ?>" class="mchatNav__link"><i class="fas fa-angle-double-right"></i><?php echo $menu_option_1 ?></a></li>
-        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_2 ?>" class="mchatNav__link"><i class="fas fa-angle-double-right"></i><?php echo $menu_option_2 ?></a></li>
+        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_1 ?>" class="mchatNav__link"><i class="mchatNav__icon mchatNav__icon--21 fas fa-angle-double-right"></i><?php echo $menu_option_1 ?></a></li>
+        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_2 ?>" class="mchatNav__link"><i class="mchatNav__icon mchatNav__icon--21 fas fa-angle-double-right"></i><?php echo $menu_option_2 ?></a></li>
     </ul>
     <?php
 }

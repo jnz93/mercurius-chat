@@ -99,12 +99,20 @@
 
     display: flex
     align-content: center
+    align-items: center
     justify-content: center
 
     font-size: $fs-16
     font-weight: $fw_bold
     text-transform: capitalize
     color: $white0
+
+    &__icon
+        color: $white0
+        margin: 0 4px
+
+        &--s21
+            font-size: $fs-21
 
     &__text
         @include reset-element

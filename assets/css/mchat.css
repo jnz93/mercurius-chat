@@ -212,6 +212,11 @@
     list-style: none;
     color: #212121;
     font-weight: 700; }
+  .mchatNav__icon {
+    color: #1E272E;
+    margin-right: 4px; }
+    .mchatNav__icon--s21 {
+      font-size: 21px; }
 
 .mchatPerson {
   margin: 0;
@@ -262,7 +267,8 @@
     padding: 0;
     list-style: none;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 700;
+    text-transform: capitalize;
     color: #212121; }
 
 .mchatContainerButtons {
@@ -337,6 +343,7 @@
     MEDIA QUERIES */
 .mchatBody {
   background-color: #FFFFFF;
+  padding-bottom: 16px;
   height: 320px;
   display: flex;
   flex-flow: column;
@@ -641,6 +648,7 @@
   margin-bottom: 8px;
   display: flex;
   align-content: center;
+  align-items: center;
   justify-content: center;
   font-size: 16px;
   font-weight: 700;
@@ -648,6 +656,11 @@
   color: #FFFFFF; }
   .btnPrimary:hover {
     background: none; }
+  .btnPrimary__icon {
+    color: #FFFFFF;
+    margin: 0 4px; }
+    .btnPrimary__icon--s21 {
+      font-size: 21px; }
   .btnPrimary__text {
     margin: 0;
     padding: 0;
