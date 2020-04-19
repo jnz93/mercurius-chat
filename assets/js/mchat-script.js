@@ -13,7 +13,7 @@ function openAndCloseChat(el)
     hideTooltip(el);
 
     // Mostrar/Esconder chat
-    jQuery('#page-home').toggleClass('mchatContainer--show');
+    jQuery('.mchat').toggleClass('mchat--show');
 }
 
 /**
@@ -73,13 +73,21 @@ jQuery(document).ready(function()
     /**
      * Ações do menu rápido
      */
-    jQuery(".mchatNav__item > a").click(function(e)
+    jQuery(".mchat__menuItem").click(function()
     {
-        e.preventDefault();
-
-        var href = jQuery(this).attr('href');
-        var page = jQuery(href);
-        page.show();
+        var contentToHide = jQuery('.mchat__content');
+        var endpoint    = jQuery(this).attr('data-endpoint');
+        contentToHide.each(function()
+        {
+            if (jQuery(this).attr('data-content') == endpoint)
+            {
+                jQuery(this).show();
+            }
+            else
+            {
+                jQuery(this).hide();
+            }
+        });
     });
 
     /**
@@ -87,12 +95,53 @@ jQuery(document).ready(function()
      */
     jQuery(".btnBack").click(function()
     {
-        var currScreen = jQuery(this).parent().parent().parent();
+        var contentParents  = jQuery('.mchat__content');
+        var currContent     = jQuery(this).parent();
 
-        if (currScreen.attr('id') == "page-services" || currScreen.attr('id') == "page-faq")
+        if (currContent.attr('data-content') == 'faq')
         {
-            currScreen.hide();
-            jQuery('#page-home').show();
+            contentParents.each(function()
+            {
+                if (jQuery(this).attr('data-content') == 'home')
+                {
+                    jQuery(this).show();
+                }
+                else
+                {
+                    jQuery(this).hide();
+                }
+            });
+        } 
+        else
+        {
+            currContent.hide();
+            currContent.prev().show();
         }
     });
 })
+
+function backButton(el)
+{
+    var contentParents  = jQuery('.mchat__content');
+    var currContent     = el.parent();
+
+    if (currContent.attr('data-content') == 'faq')
+    {
+        contentParents.each(function()
+        {
+            if (jQuery(this).attr('data-content') == 'home')
+            {
+                jQuery(this).show();
+            }
+            else
+            {
+                jQuery(this).hide();
+            }
+        });
+    } 
+    else
+    {
+        currContent.hide();
+        currContent.prev().show();
+    }
+}

@@ -14,8 +14,7 @@ $chat_icon              = get_option('mchat_custom_icon');
 $chat_tooltip           = get_option('mchat_tooltip');
 $text_button            = get_option('mchat_text_button');
 
-// Funções
-function mchat_attendants_card()
+function mchat_card_support()
 {
     $args = array(
         'role'  => 'contributor'
@@ -23,8 +22,8 @@ function mchat_attendants_card()
     $attendants = get_users($args); 
 
     if($attendants) :
-        echo '<div class="mchatCard">
-            <h3 class="mchatCard__title">Atendimento Online</h3>';
+        echo '<div class="mCard mCard__container">
+            <h3 class="mchat__title mchat__title--smaller mchat__title--cDark">Atendimento Online</h3>';
             foreach($attendants as $user) :
                 $user_id            = $user->ID;
                 $user_name          = $user->display_name;
@@ -33,14 +32,14 @@ function mchat_attendants_card()
                 $user_phone_number  = str_replace(' ', '', $user_phone_number);
                 $avatar_url         = MercuriusHelpers::mchat_sanitize_url_avatar($user_id);
 
-                echo '<div class="mchatPerson">
-                        <div class="mchatPerson__thumbContainer mchatPerson__thumbContainer--64px">
-                            <img src="'. $avatar_url .'" alt="'. $user_name .'" class="mchatPerson__thumb">
-                            <span class="mchatPerson__status mchatPerson__status--online"></span>
+                echo '<div class="mCard__support">
+                        <div class="mCard__thumbContainer mCard__thumbContainer--64px">
+                            <img src="'. $avatar_url .'" alt="'. $user_name .'" class="mCard__thumb mCard__thumb--radius100">
+                            <span class="mCard__status mCard__status--online"></span>
                         </div>
-                        <div class="mchatPerson__infoContainer">
-                            <span class="mchatPerson__name">'. $user_name .'</span>
-                            <span class="mchatPerson__role">'. $user_position .'</span>
+                        <div class="mCard__infoContainer">
+                            <span class="mCard__name">'. $user_name .'</span>
+                            <span class="mCard__role">'. $user_position .'</span>
                         </div>
                     </div>
                     <a href="https://wa.me/55'. $user_phone_number .'" target="_blank" class="btnPrimary"><span class="btnPrimary__text">iniciar conversa</span><i class="btnPrimary__icon btnPrimary__icon--s21 fab fa-whatsapp"></i></a>';
@@ -50,34 +49,7 @@ function mchat_attendants_card()
     // print_r($attendants);
 }
 
-/**
- * header
- * @param $button = bool, $title = string, $description = string
- */
-function mchat_header($show_button = null, $title, $description)
-{
-    ?>
-    <header class="mchatHeader">
-        <?php if ($show_button) : ?>
-            <div id="" class="mchatHeader__content">
-                <span class="btnSimple btnBack">
-                    <i class="btnSimple btnSimple__icon btnSimple__icon--24px fas fa-arrow-circle-left"></i>
-                    <span class="btnSimple__label">Voltar</span>
-                </span>
-            </div>
-        <?php endif; ?>
-        <div class="mchatHeader__content">
-            <h1 class="mchatHeader__title"><?php echo $title; ?></h1>
-            <p class="mchatHeader__description"><?php echo $description; ?></p>
-        </div>
-    </header>
-    <?php 
-}
-
-/**
- * Menu
- */
-function mchat_menu()
+function mchat_nav()
 {
     $menu_title         = get_option('mchat_menu_title');
     $menu_option_1      = get_option('mchat_menu_option_1');
@@ -88,30 +60,24 @@ function mchat_menu()
     $menu_endpoint_3    = get_option('mchat_menu_endpoint_3');
 
     ?>
-    <h3 class="mchatBody__title"><?php echo (!empty($menu_title) ? $menu_title : 'Menu rápido:'); ?></h3>
-    <ul class="mchatNav">
-        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_1 ?>" class="mchatNav__link"><i class="mchatNav__icon mchatNav__icon--21 fas fa-angle-double-right"></i><?php echo $menu_option_1 ?></a></li>
-        <li class="mchatNav__item"><a href="<?php echo $menu_endpoint_2 ?>" class="mchatNav__link"><i class="mchatNav__icon mchatNav__icon--21 fas fa-angle-double-right"></i><?php echo $menu_option_2 ?></a></li>
+    <ul class="mchat__nav mchat__nav--posBottom">
+        <h4 class="mchat__title mchat__title--small mchat__title--cDark"><?php echo (!empty($menu_title) ? $menu_title : 'Menu rápido:'); ?></h4>
+        <li class="mchat__menuItem" data-endpoint="<?php echo $menu_endpoint_1 ?>"><i class="mchat__icon mchat__icon--21 mchat__icon--cDark mchat__icon--rightMargin fas fa-angle-double-right"></i><?php echo $menu_option_1 ?></li>
+        <li class="mchat__menuItem" data-endpoint="<?php echo $menu_endpoint_2 ?>"><i class="mchat__icon mchat__icon--21 mchat__icon--cDark mchat__icon--rightMargin fas fa-angle-double-right"></i><?php echo $menu_option_2 ?></li>
     </ul>
     <?php
 }
 
-/**
- * Get and render products cards
- */
-function mchat_get_wc_products()
+function mchat_page_services()
 {
     $args = array(
         'limit' => 3,
     );
     $products = wc_get_products( $args );
 
-    // echo '<pre>';
-    // print_r($products);
-    // echo '</pre>';
-
+    echo ' <div class="mCard__container mCard__container--scroll">';
     if ($products):
-        echo '<p class="mchatBody__label">Encontramos <b>'. count($products) .'</b> produtos:</p>';
+        echo '<p class="mchat__text mchat__text--normal mchat__text--cDark">Encontramos <b>'. count($products) .'</b> produtos:</p>';
         foreach($products as $product):
             $product_id         = $product->id;
             $product_title      = $product->name;
@@ -122,18 +88,16 @@ function mchat_get_wc_products()
 
             $thumb_product      = wp_get_attachment_image_url($thumb_id);
 
-            echo '<div class="mchatCardProduct">
-                    <div class="mchatCardProduct__container">
+            echo '<div class="mCard__services">
+                    <div class="mCard__wrapper">
                         <!-- Thumb -->
-                        <div class="mchatCardProduct__wrapperThumb">
-                            <img src="'. $thumb_product .'" alt="" class="mchatCardProduct__thumb">
+                        <div class="mCard__wrapperThumb">
+                            <img src="'. $thumb_product .'" alt="" class="mCard__thumb">
                         </div>
                 
                         <!-- Title -->
-                        <div class="mchatCardProduct__wrapperTitle">
-                            <a href="#open-product-'. $product_id .'" class="mchatCardProduct__link">
-                                <h3 class="mchatCardProduct__title">'. wp_trim_words($product_title, 8, '...') .'</h3>
-                            </a> 
+                        <div class="mCard__wrapperTitle">
+                            <h4 class="mchat__title mchat__text--normal mchat__text--cDark" data-id="'. $product_id .'" onclick="show_product(jQuery(this))">'. wp_trim_words($product_title, 8, '...') .'</h4>
                             <div class="mchatRating">
                                 <i class="mchatRating__icon mchatRating__icon--s16 fas fa-star"></i>
                                 <i class="mchatRating__icon mchatRating__icon--s16 fas fa-star"></i>
@@ -144,38 +108,36 @@ function mchat_get_wc_products()
                             <!-- Avaliação -->
                         </div>
                     </div>
-                    <span class="mchatCardProduct__separator"></span>
-                    <div class="mchatCardProduct__container">
+                    <span class="mCard__separator"></span>
+                    <div class="mCard__wrapper">
                         <!-- Descrição -->
-                        <div class="mchatCardProduct__wrapperDesc">
-                            <p class="mchatCardProduct__desc">'. wp_trim_words($short_description, 8, '...') .'</p>
+                        <div class="mCard__wrapperDesc">
+                            <p class="mCard__desc">'. wp_trim_words($short_description, 8, '...') .'</p>
                         </div>
                 
-                        <div class="mchatCardProduct__boxPrice">
+                        <div class="mCard__boxPrice">
                             <!-- Preço -->
-                            <h3 name="product-price" class="mchatCardProduct__price">R$'. $regular_price .'</h3>
+                            <h3 name="product-price" class="mCard__price">R$'. $regular_price .'</h3>
                             <!-- Label preço -->
-                            <label for="product-price" class="mchatCardProduct__label">Até 3x no cartão</label>
+                            <label for="product-price" class="mCard__label">Até 3x no cartão</label>
                         </div>
                     </div>
                 </div>';
 
         endforeach;
     endif;
+    echo '</div> ';
 }
 
 
-/**
- * Get and render faq posts
- */
-function mchat_get_faq_posts()
+function machat_page_faq()
 {
     $args = array(
         'post_type'     => 'mchat-faq',
         'post_status'   => 'publish',
     );
     $faq_posts = new WP_Query($args);
-
+    echo '<div class="mCard__container">';
     if ($faq_posts->have_posts()) :
         while ($faq_posts->have_posts()) :
             $faq_posts->the_post();
@@ -191,11 +153,10 @@ function mchat_get_faq_posts()
                 </div>';
         endwhile;
     endif;
+    echo '</div>';
 
     
 }
-
-// HELPERS FUNCTIONS
 
 ?>
 
@@ -210,68 +171,56 @@ function mchat_get_faq_posts()
 </div>
 
 
+<div class="mchat mchat--right">
+    <div class="mchat__container">
+        <div class="mchat--topMainBackground"></div>
+        <!-- /End top background -->
+        <div data-content="home" class="mchat__content">
+            <h2 class="mchat__title mchat__title--small"><?php echo $title ?></h2>
+            <p class="mchat__text mchat__text--normal mchat__text--cWhite"><?php echo $description ?></p>
 
-<!-- Tela inicial -->
-<div id="page-home" class="mchatContainer mchatContainer--right">
-    
-    <?php 
-    mchat_header(false, $title, $description);
-    ?>
-    <section class="mchatBody">
+            <?php mchat_card_support(); ?>
 
-        <!-- Inicial -->
-        <div class="mchatBody__content">
-            <?php mchat_attendants_card(); ?>
-            <!-- /End Card Atendente -->
+            <?php mchat_nav(); ?>
 
-            <?php mchat_menu(); ?>
-            <!-- /End Menu -->
+            <span class="mchat__text mchat__text--small mchat__text--cDark mchat__text--posBottom">Horário de atendimento: 09:00 - 18:00 PM</span>
         </div>
+        <!-- /End tela inicial -->
 
-        <!-- Footer -->
-        <footer class="mchatBody__footer">
-            <span class="mchatBody__label">Horário de atendimento: <b><?php echo $business_hours ?></b></span>
-        </footer>
-    </section>
-</div>
-
-<!-- Tela serviços -->
-<div id="page-services" class="mchatContainer mchatContainer--right">
-    <?php
-    mchat_header(true, $page_services_title, $page_services_desc);
-    ?>
-    <section class="mchatBody">
-
-        <!-- Pages -->
-        <div class="mchatBody__containerResults">
-            <div id="page-products" class="">
-                <!-- Add produtos -->
-                <?php mchat_get_wc_products(); ?>
+        <div data-content="services" class="mchat__content mchat__content--flexStart" style="display: none">
+            <span class="btnSimple btnBack">
+                <i class="btnSimple btnSimple__icon btnSimple__icon--24px fas fa-arrow-circle-left"></i>
+            </span>
+            <div class="mchat__wrapperTitle">
+                <h2 class="mchat__title mchat__title--small"><?php echo $page_services_title; ?></h2>
+                <p class="mchat__text mchat__text--normal mchat__text--cWhite"><?php echo $page_services_desc; ?></p>
             </div>
 
-            <div id="page-details-product" class="" style="display: none;">
-                <!-- Add detalhes produto selecionado -->
-            </div>
+            <?php mchat_page_services(); ?>
+
         </div>
-    </section>
-</div>
+        <!-- /End servicos -->
+         
+        <div data-content="service-page" id="insert-html" class="mchat__content mchat__content--flexStart" style="display: none"></div>
+        <!-- /End FAQ page -->
 
-<!-- Tela FAQ -->
-<div id="page-faq" class="mchatContainer mchatContainer--right">
-    
-    <?php 
-    // mchat_header(false, $title, $description);
-    mchat_header(true, $page_faq_title, $page_faq_desc);
-    ?>
-    <section class="mchatBody">
-
-        <!-- Pages -->
-        <div class="mchatBody__containerResults">
-            <div id="page-faq" class="">
-                <!-- FAQ page -->
-                <?php mchat_get_faq_posts(); ?>
+        <div data-content="faq" class="mchat__content mchat__content--flexStart" style="display: none">
+            <span class="btnSimple btnBack">
+                <i class="btnSimple btnSimple__icon btnSimple__icon--24px fas fa-arrow-circle-left"></i>
+            </span>
+            <div class="mchat__wrapperTitle">
+                <h2 class="mchat__title mchat__title--small"><?php echo $page_faq_title; ?></h2>
+                <p class="mchat__text mchat__text--normal mchat__text--cWhite"><?php echo $page_faq_desc; ?></p>
             </div>
-        </div>
 
-    </section>
+            <?php machat_page_faq(); ?>
+
+        </div>
+        <!-- /End FAQ page -->
+
+        <!-- /End App -->
+        <div class="mchat--bottomMainBackground"></div>
+        <!-- /End bottom background -->
+    </div>
 </div>
+<!-- /End Mchat -->

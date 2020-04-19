@@ -23,6 +23,13 @@
         font-weight: $fw_normal
         color: $dark-1
 
+    &__desc
+        @include reset-element
+        font-size: $fs-16
+        line-height: $lh-16
+        color: $dark0
+        margin-bottom: 8px
+
     &__content
         width: 100%
         margin-bottom: 16px
@@ -48,7 +55,23 @@
 
         &::-webkit-scrollbar-thumb
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)
+
+    &__gallery
+        @include reset-element
+        @include flex-middle-items
+        width: 100%
+        height: 130px
+        margin-bottom: 8px
+        overflow: hidden
+
+    &__thumb
+        @include reset-element
+        @include mchat-shadow
+        margin-right: 4px
         
+        &--128px
+            width: 128px
+            height: 128px
 
 .mchatBody__footer
     @include reset-element

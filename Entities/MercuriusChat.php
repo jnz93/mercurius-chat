@@ -34,6 +34,12 @@ class MercuriusChat{
         // Render chat front-end
         // add_action('wp_footer', array($this, 'mchat_render_plugin'));
         add_action('wp_footer', array($this, 'mchat_front_end_chat'));
+
+        // Ajax functions  
+        add_action('wp_ajax_get_product_by_id', 'MercuriusHelpers::get_product_by_id');
+        add_action('wp_ajax_nopriv_get_product_by_id','MercuriusHelpers::get_product_by_id');
+        add_action('wp_footer', 'MercuriusHelpers::ajax_id_product');
+
     }
 
     /**

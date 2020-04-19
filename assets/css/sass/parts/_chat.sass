@@ -126,3 +126,157 @@
         font-family: $family
         font-size: $fs-16
         color: $dark0
+
+// AJUSTES NOVOS
+.mchat
+    @include mchat-shadow
+    font-family: $family
+    font-size: 62.5%
+    width: 380px
+    height: 540px
+    border-radius: 4px
+    position: absolute
+    z-index: 999
+    overflow: hidden
+    display: none
+
+    // E: containers principal
+    &__container
+        width: 100%
+        height: 100%
+        padding: 0 16px
+        position: relative
+
+    &__content
+        width: 100%
+        height: calc(100% - 64px)
+        margin: 32px auto
+
+        &--flexStart
+            @include flex-start-items
+            flex-wrap: wrap
+    // End containers
+
+    // E: MENU
+    &__nav
+        @include reset-element
+        width: calc(100% - 64px)
+        height: auto
+        display: flex
+        flex-flow: column
+
+        &--posBottom
+            position: absolute
+            bottom: 40px
+            left: 32px
+
+    &__menuItem
+        @include reset-element
+        font-size: $fs-16
+        color: $dark-1
+        width: 100%
+        margin-bottom: 16px
+        cursor: pointer
+
+        &:hover
+            color: $dark-1
+
+    
+    // E: ICONES
+    &__icon
+        @include reset-element
+
+        &--21px
+            font-size: $fs-21
+
+        &--cDark
+            color: $dark-1
+
+        &--rightMargin
+            margin-right: 4px
+
+
+    // E: Textos
+    &__wrapperTitle
+        @include reset-element
+        width: calc(100% - 48px)
+        margin-left: 16px
+
+    &__title
+        @include reset-element
+        color: $white0
+        font-weight: $fw_bold
+        margin-bottom: 8px
+
+        // M: Tamanhos
+        &--big
+            font-size: $fs-28
+
+        &--small
+            font-size: $fs-21
+        
+        &--smaller
+            font-size: $fs-18
+
+        // M: Cores
+        &--cDark
+            color: $dark-1
+
+    &__text
+        @include reset-element
+        font-weight: $fw_normal
+        margin-bottom: 16px
+
+        // M: Tamanhos
+        &--normal
+            font-size: $fs-16
+            line-height: $lh-16
+
+        &--small
+            font-size: $fs-14
+            line-height: $lh-14
+
+        // M: Cores
+        &--cWhite
+            color: $white0
+
+        &--cDark
+            color: $dark-1
+
+        // M: Posicionamentos
+        &--posBottom
+            @include reset-element
+            width: 100%
+            text-align: center
+            position: absolute
+            bottom: 16px
+            left: 0
+
+
+    // M: Posicionamento
+    &--right
+        right: 32px
+        bottom: 92px
+
+    // M: Backgrounds
+    &--topMainBackground
+        background-color: $primary
+        width: 100%
+        height: 45%
+        top: 0
+        left: 0
+        position: absolute
+        z-index: -1
+
+    &--bottomMainBackground
+        background-color: $white0
+        width: 100%
+        height: 55%
+        bottom: 0
+        left: 0
+        position: absolute
+        z-index: -1
+
+    // M: Show
+    &--show
+        display: flex

@@ -1,6 +1,172 @@
 @import "_styleguide.sass"
 @import "_settings.sass"
 
+.mCard
+    // E: Container cards
+    &__container
+        @include reset-element
+        @include mchat-shadow
+        background-color: $white0
+        width: calc(100% - 32px)
+        height: fit-content
+        border-radius: 4px
+        padding: 16px
+        position: absolute
+        top: 140px
+        left: 16px
+
+        &--scroll
+            box-shadow: none
+            overflow: auto
+            height: 380px
+
+            &::-webkit-scrollbar
+                width: 5px
+
+            &::-webkit-scrollbar-track
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+
+            &::-webkit-scrollbar-thumb
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)
+
+    // E: CARD SERVICE
+    &__services
+        @include reset-element
+        background-color: $white0
+        width: 100%
+        border-radius: 4px
+        padding: 8px
+        margin-bottom: 16px
+        @include mchat-shadow
+        @include flex-middle-items
+
+    &__wrapper
+        @include flex-middle-items
+        flex-flow: row
+
+    &__wrapperThumb
+        width: 64px
+        height: 64px
+        margin-right: 8px
+
+    &__wrapperTitle
+        width: calc(100% - 72px)
+        height: auto
+
+    &__wrapperDesc
+        width: 60%
+        height: auto
+        margin-right: 8px
+
+    &__boxPrice
+        width: calc(40% - 8px)
+        height: auto
+
+    &__separator
+        background-color: $light-1
+        width: 100%
+        height: 1px
+        margin: 8px 0px
+
+    &__link
+        text-decoration: none
+
+        &:hover
+            text-decoration: underline
+            color: $dark0
+
+    // Textos
+    &__title
+        @include title-card-product
+
+    &__desc
+        font-size: $fs-14
+        line-height: $lh-14
+        font-weight: $fw_normal
+        color: $dark0
+
+    &__price
+        @include reset-element
+        font-size: $fs-21
+        font-weight: $fw_bold
+        line-height: $lh-16
+        color: $dark-1
+
+    &__label
+        font-size: $fs-12
+        font-weight: $fw_normal
+        color: $dark0
+        margin-top: 4px
+
+        
+    // E: CARD SUPPORT
+    &__support
+        @include reset-element
+        width: 100%
+        height: auto
+        margin: 16px auto
+
+        display: flex
+        flex-wrap: wrap
+        align-content: center
+
+    &__thumbContainer
+        @include reset-element
+        @include mchat-shadow
+        border-radius: 100%
+        margin-right: 16px
+        position: relative
+
+        &--48px
+            width: 48px
+            height: 48px
+
+        &--64px
+            width: 64px
+            height: 64px
+
+    &__thumb
+        @include reset-element
+        width: 100%
+        height: 100%
+
+        &--radius100
+            border-radius: 100%
+        
+
+    &__infoContainer
+        display: flex
+        flex-wrap: wrap
+        align-content: center
+
+    &__status
+        width: 16px
+        height: 16px
+        border-radius: 100%
+        position: absolute 
+        bottom: 0
+        right: -4px
+
+    &--online
+        background-color: $online
+
+    &__name
+        @include reset-element
+        font-size: $fs-16
+        font-weight: $fw_bold
+        color: $dark-1
+        margin-bottom: 2px
+        width: 100%
+        display: block
+
+    &__role
+        @include reset-element
+        font-size: $fs-12
+        font-weight: $fw_bold
+        text-transform: capitalize
+        color: $dark0
+
+
 .mchatCard
     @include reset-element
     @include mchat-shadow
