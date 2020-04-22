@@ -146,6 +146,12 @@
       align-content: flex-start;
       justify-content: flex-start;
       flex-wrap: wrap; }
+  .mchat__separator {
+    width: 100%;
+    height: 1px;
+    margin: 8px auto;
+    display: block;
+    background-color: #E5E9ED; }
   .mchat__nav {
     margin: 0;
     padding: 0;
@@ -156,16 +162,17 @@
     flex-flow: column; }
     .mchat__nav--posBottom {
       position: absolute;
-      bottom: 40px;
+      bottom: 48px;
       left: 32px; }
   .mchat__menuItem {
     margin: 0;
     padding: 0;
     list-style: none;
     font-size: 16px;
+    font-weight: 700;
     color: #212121;
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     cursor: pointer; }
     .mchat__menuItem:hover {
       color: #212121; }
@@ -200,6 +207,8 @@
       font-size: 18px; }
     .mchat__title--cDark {
       color: #212121; }
+    .mchat__title--cDark0 {
+      color: #757575; }
   .mchat__text {
     margin: 0;
     padding: 0;
@@ -216,6 +225,8 @@
       color: #FFFFFF; }
     .mchat__text--cDark {
       color: #212121; }
+    .mchat__text--cDark0 {
+      color: #757575; }
     .mchat__text--posBottom {
       margin: 0;
       padding: 0;

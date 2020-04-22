@@ -22,8 +22,8 @@ function mchat_card_support()
     $attendants = get_users($args); 
 
     if($attendants) :
-        echo '<div class="mCard mCard__container">
-            <h3 class="mchat__title mchat__title--smaller mchat__title--cDark">Atendimento Online</h3>';
+        echo '<div class="mCard mCard__container mCard__container--scroll">
+            <h3 class="mchat__title mchat__title--smaller mchat__title--cDark0">Atendimento Online</h3><span class="mchat__separator"></span>';
             foreach($attendants as $user) :
                 $user_id            = $user->ID;
                 $user_name          = $user->display_name;
@@ -61,7 +61,7 @@ function mchat_nav()
 
     ?>
     <ul class="mchat__nav mchat__nav--posBottom">
-        <h4 class="mchat__title mchat__title--small mchat__title--cDark"><?php echo (!empty($menu_title) ? $menu_title : 'Menu rápido:'); ?></h4>
+        <h4 class="mchat__title mchat__title--small mchat__title--cDark0"><?php echo (!empty($menu_title) ? $menu_title : 'Menu rápido:'); ?></h4>
         <li class="mchat__menuItem" data-endpoint="<?php echo $menu_endpoint_1 ?>"><i class="mchat__icon mchat__icon--21 mchat__icon--cDark mchat__icon--rightMargin fas fa-angle-double-right"></i><?php echo $menu_option_1 ?></li>
         <li class="mchat__menuItem" data-endpoint="<?php echo $menu_endpoint_2 ?>"><i class="mchat__icon mchat__icon--21 mchat__icon--cDark mchat__icon--rightMargin fas fa-angle-double-right"></i><?php echo $menu_option_2 ?></li>
     </ul>
@@ -137,7 +137,7 @@ function machat_page_faq()
         'post_status'   => 'publish',
     );
     $faq_posts = new WP_Query($args);
-    echo '<div class="mCard__container">';
+    echo '<div class="mCard__container mCard__container--scroll">';
     if ($faq_posts->have_posts()) :
         while ($faq_posts->have_posts()) :
             $faq_posts->the_post();
@@ -183,7 +183,7 @@ function machat_page_faq()
 
             <?php mchat_nav(); ?>
 
-            <span class="mchat__text mchat__text--small mchat__text--cDark mchat__text--posBottom">Horário de atendimento: 09:00 - 18:00 PM</span>
+            <span class="mchat__text mchat__text--small mchat__text--cDark0 mchat__text--posBottom"><span class="mchat__separator"></span>Horário de atendimento: 09:00 - 18:00 PM</span>
         </div>
         <!-- /End tela inicial -->
 
